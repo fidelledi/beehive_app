@@ -38,6 +38,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  uses-material-design: true
   fonts:
     - family: SF-Pro-Black
       fonts:

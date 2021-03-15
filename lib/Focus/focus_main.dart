@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:beehive_app/Focus/breathing_exercises.dart';
 
-class focusMain extends StatelessWidget {
+class focusMain extends StatefulWidget {
   @override
+  _focusMain createState() => _focusMain();
+}
+
+  hexColor (String colorhexcode) {
+    String colornew = '0xff' + colorhexcode;
+    colornew = colornew.replaceAll('#', '');
+    int colorint = int.parse(colornew);
+    return colorint;
+  }
+
+class _focusMain extends State<focusMain> {
   Widget build(BuildContext) {
     return Scaffold(
       appBar: AppBar(
         title: Text(' '),
+        // leading: new IconButton(
+        //   icon: new Icon(Icons.arrow_back, color: Colors.black),
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        // ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -19,7 +37,7 @@ class focusMain extends StatelessWidget {
               "Focus",
               style: TextStyle(
                 fontFamily: 'SF-Pro-Bold',
-                color: Colors.black,
+                color: Color(hexColor('#828282')),
                 fontSize:38
               ),
             ),),),
@@ -35,36 +53,42 @@ class focusMain extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                     child:
-                      Column(
-                        children: <Widget>[
-                          Row(
-                            children: [
-                              Text(
-                                "Pomodoro",
-                                style: TextStyle(
-                                  fontFamily: 'SF-Pro-Bold',
-                                  color: Colors.black,
-                                  fontSize: 24,
-                                  letterSpacing: 1.8,
-                                ),
-                                ),],
-                                ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
-                                    style: TextStyle(
-                                      fontFamily: 'SF-Pro-Thin',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      letterSpacing: 1,
-                                      height: 1.6,
-                                    ),
+                      InkWell(
+                              child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                Text(
+                                  "Pomodoro",
+                                  style: TextStyle(
+                                    fontFamily: 'SF-Pro-Bold',
+                                    color: Color(hexColor('#828282')),
+                                    fontSize: 24,
+                                    letterSpacing: 1.8,
+                                  ),
+                                  ),
+                                  ],
+                                  ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      style: TextStyle(
+                                        fontFamily: 'SF-Pro-Thin',
+                                        color: Color(hexColor('#767676')),
+                                        fontSize: 16,
+                                        letterSpacing: 1,
+                                        height: 1.6,
+                                      ),
                     ),
-                                ],
-                              ),
-                            ],
-                          ),),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                               ); }
+                      ),),
                           SizedBox(
                             height: 32,
                           ),
@@ -76,37 +100,44 @@ class focusMain extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                     child:
-                      Column(
-                        children: <Widget>[
-                          Row(
-                            children: [
-                              Text(
-                                "Breathing\nExercises",
-                                style: TextStyle(
-                                  fontFamily: 'SF-Pro-Bold',
-                                  color: Colors.black,
-                                  fontSize: 24,
-                                  letterSpacing: 1.8,
-                                ),
-                                ),],
-                                ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
-                                    style: TextStyle(
-                                      fontFamily: 'SF-Pro-Thin',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      letterSpacing: 1,
-                                      height: 1.6,
-                                    ),
+                      InkWell(
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                Text(
+                                  "Breathing\nExercises",
+                                  style: TextStyle(
+                                    fontFamily: 'SF-Pro-Bold',
+                                    color: Color(hexColor('#828282')),
+                                    fontSize: 24,
+                                    letterSpacing: 1.8,
+                                  ),
+                                  ),],
+                                  ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      style: TextStyle(
+                                        fontFamily: 'SF-Pro-Thin',
+                                        color: Color(hexColor('#767676')),
+                                        fontSize: 16,
+                                        letterSpacing: 1,
+                                        height: 1.6,
+                                      ),
                     ),
-                                ],
-                              ),
-                            ],
-                          ),),
-                          ],
+                                  ],
+                                ),
+                              ],
+                            ),
+                      
+                          onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                               ); }
+                          ),
+                          ),],
+                          physics: NeverScrollableScrollPhysics(),
                       ),
                 ),],
               ),
