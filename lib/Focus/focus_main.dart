@@ -26,8 +26,9 @@ class focusMain extends StatelessWidget {
             Expanded(
               child: ListView( 
                 padding: const EdgeInsets.only(left: 32, right: 32, top: 15),
-                children: <Widget>[Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 23),
+                children: <Widget>[
+                  Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 27),
                   height:  268, width: 347,
                   decoration: BoxDecoration(
                     color: Colors.black12,
@@ -43,18 +44,72 @@ class focusMain extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'SF-Pro-Bold',
                                   color: Colors.black,
-                                  fontSize: 30,
-                                  letterSpacing: 1,
+                                  fontSize: 24,
+                                  letterSpacing: 1.8,
                                 ),
+                                ),],
+                                ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                    style: TextStyle(
+                                      fontFamily: 'SF-Pro-Thin',
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      letterSpacing: 1,
+                                      height: 1.6,
+                                    ),
                     ),
+                                ],
+                              ),
                             ],
+                          ),),
+                          SizedBox(
+                            height: 32,
                           ),
+                          Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 27),
+                  height:  268, width: 347,
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                    child:
+                      Column(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Text(
+                                "Breathing\nExercises",
+                                style: TextStyle(
+                                  fontFamily: 'SF-Pro-Bold',
+                                  color: Colors.black,
+                                  fontSize: 24,
+                                  letterSpacing: 1.8,
+                                ),
+                                ),],
+                                ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                    style: TextStyle(
+                                      fontFamily: 'SF-Pro-Thin',
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      letterSpacing: 1,
+                                      height: 1.6,
+                                    ),
+                    ),
+                                ],
+                              ),
+                            ],
+                          ),),
                           ],
                       ),
                 ),],
               ),
-            ),
-      ],)
     );
   }
 }
