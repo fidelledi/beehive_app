@@ -22,7 +22,11 @@ samples, guidance on mobile development, and a full API reference.
 git checkout -b <Branch Name>
 ```
 2.  Apply changes to code 
-3. Commit Changes 
+3.  Save the changes
+```
+git add .
+```
+5. Commit Changes 
 ```
 git commit -m "Add Details"
 ```
