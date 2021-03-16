@@ -2,6 +2,8 @@
 
 A candidate application for Solution Challenge 2021.
 
+## Upgrade to the latest version of flutter
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -66,3 +68,4 @@ git merge upstream/main
 git push origin main
 ```
 8. Refresh the Fork Repository Web Page 
+
