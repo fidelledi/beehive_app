@@ -137,7 +137,7 @@ class _focusMain extends State<focusMain> {
                                ); }
                           ),
                           ),],
-                          physics: NeverScrollableScrollPhysics(),
+                          // physics: NeverScrollableScrollPhysics(),
                       ),
                 ),],
               ),
