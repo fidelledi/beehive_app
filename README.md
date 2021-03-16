@@ -5,6 +5,9 @@ A candidate application for Solution Challenge 2021.
 ## Upgrade to the latest version of flutter
 flutter doctor upgrade 
 
+## Check if your copy of the app has the appropriate packages 
+flutter pub get
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
