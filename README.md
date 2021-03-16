@@ -3,6 +3,7 @@
 A candidate application for Solution Challenge 2021.
 
 ## Upgrade to the latest version of flutter
+flutter doctor upgrade 
 
 ## Getting Started
 
