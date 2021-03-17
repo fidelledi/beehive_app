@@ -42,7 +42,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/bee.jpg
+    - assets/images/
   fonts:
     - family: SF-Pro-Black
       fonts:
