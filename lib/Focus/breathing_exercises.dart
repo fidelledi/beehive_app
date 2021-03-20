@@ -48,6 +48,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
               ),),
               Align(
                   alignment: Alignment.topCenter, 
+                  
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat. Duis aute irure dolor in\nreprehenderit involuptate velit esse cillum dolore eu\nfugiat nulla pariatur.",
                     style: TextStyle(
@@ -58,14 +59,16 @@ class _breathingExercisePage extends State<breathingExercisePage> {
                     ),
                   ),
                   ),
-              // Container(
-              // height:  146, width: 347,
-              // decoration: BoxDecoration(
-              //   color: Colors.white,
-              //   borderRadius: BorderRadius.circular(15),
-              // ),
+              Center(
+                child: Container(
+                  height:  146, width: 347,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
 
-              // ),
+                  ),
+              ),
               ],),
       );
             }
