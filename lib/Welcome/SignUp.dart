@@ -26,85 +26,87 @@ class signInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top:100),
-              child: Text("Sign Up",
-                style: TextStyle(
-                  fontFamily: 'SF-Pro-Bold',
-                  fontSize: 35,
-                  color: Colors.black54,
-                ),),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top:12),
-              child: Text("Bee yourself!",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'SF-Pro-Thin',
-                  color: Colors.black54,
-                ),),
-            ),
-          ),
-          NameTextInput(
-              child: TextField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person_rounded,
-                    color: Colors.black45,),
-                  hintText: "Name",
-                ),
-              )
-          ),
-          SchoolInputText(
-            child: TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.school_rounded,
-                  color: Colors.black45,),
-                hintText: "School",
-              ),
-            ),
-          ),
-          EmailTextInput(
-            child: TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.mail_rounded,
-                  color: Colors.black45,),
-                hintText: "Email",
-              ),
-            ),
-          ),
-          PasswordTextInput(
-            child: TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.lock_open_rounded,
-                  color:Colors.black45,),
-                hintText: "Password",
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top:30),
-            child: FlatButton(
-                color: Colors.amber,
-                onPressed: (){},
-                shape:new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(20),
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top:100),
                 child: Text("Sign Up",
                   style: TextStyle(
-                    fontSize: 20,
                     fontFamily: 'SF-Pro-Bold',
-                    color: Colors.white,
-                  ),)),),
-          Padding(
-            padding: const EdgeInsets.only(top:18),
-            child: AlreadyHaveAnAccount(),
-          ),
-        ],
+                    fontSize: 35,
+                    color: Colors.black54,
+                  ),),
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top:12),
+                child: Text("Bee yourself!",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SF-Pro-Thin',
+                    color: Colors.black54,
+                  ),),
+              ),
+            ),
+            NameTextInput(
+                child: TextField(
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.person_rounded,
+                      color: Colors.black45,),
+                    hintText: "Name",
+                  ),
+                )
+            ),
+            SchoolInputText(
+              child: TextField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.school_rounded,
+                    color: Colors.black45,),
+                  hintText: "School",
+                ),
+              ),
+            ),
+            EmailTextInput(
+              child: TextField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.mail_rounded,
+                    color: Colors.black45,),
+                  hintText: "Email",
+                ),
+              ),
+            ),
+            PasswordTextInput(
+              child: TextField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.lock_open_rounded,
+                    color:Colors.black45,),
+                  hintText: "Password",
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top:30),
+              child: FlatButton(
+                  color: Colors.amber,
+                  onPressed: (){},
+                  shape:new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(20),
+                  ),
+                  child: Text("Sign Up",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'SF-Pro-Bold',
+                      color: Colors.white,
+                    ),)),),
+            Padding(
+              padding: const EdgeInsets.only(top:18),
+              child: AlreadyHaveAnAccount(),
+            ),
+          ],
+        ),
       ),
     );
   }
