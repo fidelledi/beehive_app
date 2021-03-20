@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^1.0.1
   firebase_auth: ^1.0.1
+  dependencies:
+  table_calendar: ^2.3.3
   
 dev_dependencies:
   flutter_test:
@@ -42,7 +44,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/bee.jpg
+    - assets/images/
   fonts:
     - family: SF-Pro-Black
       fonts:
