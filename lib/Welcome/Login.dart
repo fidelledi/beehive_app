@@ -26,84 +26,86 @@ class loginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          children: <Widget>[
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top:100),
-                child: Text("Sign In",
-                  style: TextStyle(
-                    fontFamily: 'SF-Pro-Bold',
-                    fontSize: 35,
-                    color: Colors.black54,
-                  ),),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top:12),
-                child: Text("Welcome back!",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'SF-Pro-Thin',
-                    color: Colors.black54,
-                  ),),
-              ),
-            ),
-            TextFieldContainer(
-              child: TextField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.account_circle_rounded,
-                      color: Colors.black45),
-                  hintText:  "Username",
-                ),
-              ),
-            ),
-            TextFieldContainer2(
-              child: TextField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.lock_open_rounded,
-                      color:Colors.black45),
-                  hintText: "Password",
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top:15),
-                  child: Text(
-                    "Forgot your password?",
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top:100),
+                  child: Text("Sign In",
                     style: TextStyle(
+                      fontFamily: 'SF-Pro-Bold',
+                      fontSize: 35,
                       color: Colors.black54,
-                      fontFamily: 'SP-Pro-Thin',
-                      fontSize: 15,
+                    ),),
+                ),
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top:12),
+                  child: Text("Welcome back!",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'SF-Pro-Thin',
+                      color: Colors.black54,
+                    ),),
+                ),
+              ),
+              TextFieldContainer(
+                child: TextField(
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.account_circle_rounded,
+                        color: Colors.black45),
+                    hintText:  "Username",
+                  ),
+                ),
+              ),
+              TextFieldContainer2(
+                child: TextField(
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.lock_open_rounded,
+                        color:Colors.black45),
+                    hintText: "Password",
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top:15),
+                    child: Text(
+                      "Forgot your password?",
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontFamily: 'SP-Pro-Thin',
+                        fontSize: 15,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: FlatButton(
-                  color: Colors.amber,
-                  onPressed: (){},
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(20),
-                  ),
-                  child: Text("Login",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'SF-Pro-Bold',
-                      color: Colors.white,
-                    ),)),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top:20),
-              child: AlreadyHaveAnAccountCheck(),
-            )
-          ],
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: FlatButton(
+                    color: Colors.amber,
+                    onPressed: (){},
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(20),
+                    ),
+                    child: Text("Login",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'SF-Pro-Bold',
+                        color: Colors.white,
+                      ),)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top:20),
+                child: AlreadyHaveAnAccountCheck(),
+              )
+            ],
+          ),
         )
     );
   }

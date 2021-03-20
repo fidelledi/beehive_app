@@ -46,39 +46,42 @@ class LandingPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(right:300, top:25),
-                child: Text("Hello!",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'SF-Pro-Text',
-                  color: Colors.black54,
-                ),),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right:240 ,top:3),
-                child: Text("Bee B. Co",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: 'SF-Pro-Bold',
-                  color: Colors.black54,
-                ),),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right:80, top:3),
-                child: Text("De La Salle - College of St Benilde",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'SF-Pro-Text',
-                  color: Colors.black54,
-                ),),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right:300,top:25,left:30),
+                  child: Text("Hello!",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SF-Pro-Text',
+                    color: Colors.black54,
+                  ),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right:240 ,top:3,left:30),
+                  child: Text("Bee B. Co",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'SF-Pro-Bold',
+                    color: Colors.black54,
+                  ),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right:80, top:3, left:30),
+                  child: Text("De La Salle - College of St Benilde",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SF-Pro-Text',
+                    color: Colors.black54,
+                  ),),
+                ),
+                Expanded(
+                  child: Calendar(),
+                )
+              ],
+            ),
           ),
-        ),
       ),
     );
   }
@@ -91,7 +94,7 @@ class Calendar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top:50),
+        padding: const EdgeInsets.only(top:150),
         child: TableCalendar(calendarController: _controller,),
       )
     );
