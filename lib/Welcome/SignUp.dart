@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home:signInPage(),
+      home: signInPage(),
     );
   }
 }
@@ -31,78 +31,94 @@ class signInPage extends StatelessWidget {
           children: <Widget>[
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top:100),
-                child: Text("Sign Up",
+                padding: const EdgeInsets.only(top: 100),
+                child: Text(
+                  "Sign Up",
                   style: TextStyle(
                     fontFamily: 'SF-Pro-Bold',
                     fontSize: 35,
                     color: Colors.black54,
-                  ),),
+                  ),
+                ),
               ),
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top:12),
-                child: Text("Bee yourself!",
+                padding: const EdgeInsets.only(top: 12),
+                child: Text(
+                  "Bee yourself!",
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'SF-Pro-Thin',
                     color: Colors.black54,
-                  ),),
+                  ),
+                ),
               ),
             ),
             NameTextInput(
                 child: TextField(
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.person_rounded,
-                      color: Colors.black45,),
-                    hintText: "Name",
-                  ),
-                )
-            ),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.person_rounded,
+                  color: Colors.black45,
+                ),
+                hintText: "Name",
+              ),
+            )),
             SchoolInputText(
               child: TextField(
                 decoration: InputDecoration(
-                  icon: Icon(Icons.school_rounded,
-                    color: Colors.black45,),
+                  icon: Icon(
+                    Icons.school_rounded,
+                    color: Colors.black45,
+                  ),
                   hintText: "School",
                 ),
               ),
             ),
             EmailTextInput(
               child: TextField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  icon: Icon(Icons.mail_rounded,
-                    color: Colors.black45,),
+                  icon: Icon(
+                    Icons.mail_rounded,
+                    color: Colors.black45,
+                  ),
                   hintText: "Email",
                 ),
               ),
             ),
             PasswordTextInput(
               child: TextField(
+                obscureText: true,
                 decoration: InputDecoration(
-                  icon: Icon(Icons.lock_open_rounded,
-                    color:Colors.black45,),
+                  icon: Icon(
+                    Icons.lock_open_rounded,
+                    color: Colors.black45,
+                  ),
                   hintText: "Password",
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top:30),
+              padding: const EdgeInsets.only(top: 30),
               child: FlatButton(
                   color: Colors.amber,
-                  onPressed: (){},
-                  shape:new RoundedRectangleBorder(
+                  onPressed: () {},
+                  shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20),
                   ),
-                  child: Text("Sign Up",
+                  child: Text(
+                    "Sign Up",
                     style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'SF-Pro-Bold',
                       color: Colors.white,
-                    ),)),),
+                    ),
+                  )),
+            ),
             Padding(
-              padding: const EdgeInsets.only(top:18),
+              padding: const EdgeInsets.only(top: 18),
               child: AlreadyHaveAnAccount(),
             ),
           ],
@@ -118,7 +134,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
   const AlreadyHaveAnAccount({
     Key key,
     this.press,
-    this.login =true,
+    this.login = true,
   }) : super(key: key);
 
   @override
@@ -127,22 +143,24 @@ class AlreadyHaveAnAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          login ? "Already have an account?": "Don't have an account?",
+          login ? "Already have an account?" : "Don't have an account?",
           style: TextStyle(
             color: Colors.black54,
             fontFamily: 'SF-Pro-Thin',
             fontSize: 15,
-          ),),
+          ),
+        ),
         GestureDetector(
-          onTap:press,
+          onTap: press,
           child: Text(
-            login ? "Sign In": "Sign Up",
+            login ? "Sign In" : "Sign Up",
             style: TextStyle(
-              color:Colors.black54,
+              color: Colors.black54,
               fontFamily: 'SF-Pro-Bold',
               fontSize: 15,
               fontWeight: FontWeight.bold,
-            ),),
+            ),
+          ),
         ),
       ],
     );
@@ -159,14 +177,15 @@ class PasswordTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:18),
+      padding: const EdgeInsets.only(top: 18),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
         decoration: BoxDecoration(
-          color:Colors.grey,
-          borderRadius:  BorderRadius.circular(29),
-        ), child: child,
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(29),
+        ),
+        child: child,
       ),
     );
   }
@@ -182,14 +201,13 @@ class EmailTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:18),
+      padding: const EdgeInsets.only(top: 18),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
         decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(29)
-        ), child: child,
+            color: Colors.grey, borderRadius: BorderRadius.circular(29)),
+        child: child,
       ),
     );
   }
@@ -205,14 +223,15 @@ class SchoolInputText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:18),
+      padding: const EdgeInsets.only(top: 18),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(29),
-        ), child: child,
+        ),
+        child: child,
       ),
     );
   }
@@ -231,7 +250,7 @@ class NameTextInput extends StatelessWidget {
       padding: const EdgeInsets.only(top: 90),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-        width:370,
+        width: 370,
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(29),
