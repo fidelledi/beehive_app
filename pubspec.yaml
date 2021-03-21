@@ -45,6 +45,16 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/bee.jpg
+    - assets/images/person1.jpg
+    - assets/images/person2.jpg
+    - assets/images/person3.jpg
+    - assets/images/person4.jpg
+    - assets/images/person5.jpg
+    - assets/images/person6.jpg
+    - assets/images/person7.jpg
+    - assets/images/person8.jpg
+
+
   fonts:
     - family: SF-Pro-Black
       fonts:

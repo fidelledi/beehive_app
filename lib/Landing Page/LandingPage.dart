@@ -26,18 +26,16 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white70 ,
+        backgroundColor: Color(0xFFF8CD81) ,
           title: Padding(
-            padding: const EdgeInsets.only(left:140),
+            padding: const EdgeInsets.only(left:150),
             child: Text("BEEHIVE",
             style: TextStyle(
               fontFamily: 'SF-Pro-Bold',
               fontSize: 24,
-              color: Colors.deepOrangeAccent
+              color: Colors.white,
             ),),
           ),
-
-
         actions: <Widget>[
           IconButton(
           icon: Icon(Icons.settings,
@@ -46,7 +44,7 @@ class LandingPage extends StatelessWidget {
         ],
       ),
       body: Container(
-          child: SingleChildScrollView(
+          //child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Padding(
@@ -55,7 +53,7 @@ class LandingPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'SF-Pro-Text',
-                    color: Colors.black54,
+                    color: Colors.black,
                   ),),
                 ),
                 Padding(
@@ -64,7 +62,7 @@ class LandingPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 25,
                     fontFamily: 'SF-Pro-Bold',
-                    color: Colors.black54,
+                    color: Colors.black,
                   ),),
                 ),
                 Padding(
@@ -73,30 +71,113 @@ class LandingPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'SF-Pro-Text',
-                    color: Colors.black54,
+                    color: Colors.black,
                   ),),
                 ),
                 Expanded(
-                  child: Calendar(),
-                )
+                    child: ListView(
+                      padding: EdgeInsets.only(top:30, left: 20, right:20),
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(30),
+                          height: 400, width: 500,
+                          decoration: BoxDecoration(
+                            color: Colors.black12,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Calendar(),
+                        ),
+                      ],
+                    )),
               ],
             ),
           ),
-      ),
+      bottomNavigationBar: bottomNavBar(),
     );
   }
 }
 
 
-class Calendar extends StatelessWidget {
-  CalendarController _controller= CalendarController();
+class Calendar extends StatefulWidget {
+  @override
+  _CalendarState createState() => _CalendarState();
+}
+
+class _CalendarState extends State<Calendar> {
+  CalendarController _controller;
+  @override
+  void initState(){
+    super.initState();
+    _controller=CalendarController();
+  }
+  @override
+  void dispose(){
+    super.dispose();
+    _controller.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top:150),
-        child: TableCalendar(calendarController: _controller,),
-      )
+      body: Container(
+        child:SingleChildScrollView(
+          child:Column(
+            children: <Widget>[
+              TableCalendar(calendarController: _controller)
+            ],
+          )
+        )
+      ),
+    );
+  }
+}
+
+class bottomNavBar extends StatefulWidget {
+  @override
+  _bottomNavBarState createState() => _bottomNavBarState();
+}
+
+class _bottomNavBarState extends State<bottomNavBar> {
+  int _selectedIndex=0;
+  static const TextStyle optionStyle=
+      TextStyle(
+        fontFamily: 'SF-Pro-Bold',
+        fontSize: 25,
+      );
+  static const List<Widget>_widgetOption = <Widget>[
+    Text(
+      'Index 0: Focus',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Social',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Uplifter',
+      style: optionStyle,
+    )
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_objects_outlined),
+            label: 'Focus',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sentiment_satisfied_alt_rounded),
+            label: 'Social',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.insights_rounded),
+            label: 'Uplifter',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xFFD17B47),
+      ),
     );
   }
 }
