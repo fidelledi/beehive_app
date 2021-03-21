@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:beehive_app/Welcome/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -17,11 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home:WelcomePage(),
+      home: WelcomePage(),
     );
   }
 }
-
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -29,39 +29,50 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Padding(padding:
-          EdgeInsets.fromLTRB(30,130,30,30),
-
-            child: Image.asset('assets/images/bee.jpg'),),
-          Text('Welcome!',
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 130, 30, 30),
+            child: Image.asset('assets/images/bee.jpg'),
+          ),
+          Text(
+            'Welcome!',
             style: TextStyle(
               color: Colors.black54,
               fontSize: 40,
               fontFamily: 'SF-Pro-Bold',
-            ),),
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.only(left:30, right:30),
-            child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit esdada",
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: Text(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit esdada",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 17,
                 fontFamily: 'SF-Pro-Thin',
-              ),),
+              ),
+            ),
           ),
-          Padding(padding: EdgeInsets.only(top:170),
+          Padding(
+            padding: EdgeInsets.only(top: 100),
             child: FlatButton(
                 color: Colors.amber,
-                onPressed: (){},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (builder) => signInPage()));
+                },
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20),
                 ),
-                child: Text("Lets Go!",
+                child: Text(
+                  "Lets Go!",
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'SF-Pro-Bold',
                     color: Colors.white,
-                  ),)),)
+                  ),
+                )),
+          )
         ],
       ),
     );
