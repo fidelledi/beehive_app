@@ -44,7 +44,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-<<<<<<< HEAD
     - assets/images/bee.jpg
     - assets/images/person1.jpg
     - assets/images/person2.jpg
@@ -55,10 +54,6 @@ flutter:
     - assets/images/person7.jpg
     - assets/images/person8.jpg
 
-
-=======
-    - assets/images/
->>>>>>> upstream/main
   fonts:
     - family: SF-Pro-Black
       fonts:
