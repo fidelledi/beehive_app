@@ -14,19 +14,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Beehive',
-      home: LandingPage(),
+      home: LandingPageUpdate(),
     );
   }
 }
 
-class LandingPage extends StatelessWidget {
+class LandingPageUpdate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF8CD81),
         title: Padding(
-          padding: const EdgeInsets.only(left: 150),
+          padding: const EdgeInsets.only(left: 120),
           child: Text(
             "BEEHIVE",
             style: TextStyle(
@@ -45,10 +45,10 @@ class LandingPage extends StatelessWidget {
               onPressed: () {}),
         ],
       ),
+      backgroundColor: Colors.white,
       body: Container(
-        //child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
+        child: ListView(
+          children: [
             Padding(
               padding: const EdgeInsets.only(right: 300, top: 25, left: 30),
               child: Text(
@@ -82,26 +82,22 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-                child: ListView(
-              padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(30),
-                  height: 400,
-                  width: 500,
-                  decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Calendar(),
-                ),
-              ],
-            )),
+            Container(
+              padding: const EdgeInsets.all(20),
+              height: 400,
+              width: 500,
+              decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              //child: Calendar(),
+            ),
           ],
+          //physics: NeverScrollableScrollPhysics(),
+          //addAutomaticKeepAlives: true,
         ),
       ),
-      bottomNavigationBar: bottomNavBar(),
+      //bottomNavigationBar: bottomNavBar(),
     );
   }
 }
@@ -128,60 +124,11 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: TableCalendar(
-        calendarController: _controller,
-      ),
-    ));
-  }
-}
-
-class bottomNavBar extends StatefulWidget {
-  @override
-  _bottomNavBarState createState() => _bottomNavBarState();
-}
-
-class _bottomNavBarState extends State<bottomNavBar> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontFamily: 'SF-Pro-Bold',
-    fontSize: 25,
-  );
-  static const List<Widget> _widgetOption = <Widget>[
-    Text(
-      'Index 0: Focus',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Social',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Uplifter',
-      style: optionStyle,
-    )
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_objects_outlined),
-            label: 'Focus',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sentiment_satisfied_alt_rounded),
-            label: 'Social',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.insights_rounded),
-            label: 'Uplifter',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFFD17B47),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: TableCalendar(
+          calendarController: _controller,
+        ),
       ),
     );
   }
