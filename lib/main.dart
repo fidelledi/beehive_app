@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-      home: Nav(),
+      home: LandingPageUpdate(),
+      //home: Nav(),
       //home: focusMain(),
     );
   }
