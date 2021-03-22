@@ -98,8 +98,8 @@ class loginPage extends StatelessWidget {
               child: FlatButton(
                   color: Colors.amber,
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (builder) => LandingPage()));
+                    // Navigator.of(context).pushReplacement(
+                    //   MaterialPageRoute(builder: (builder) => LandingPage()));
                   },
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20),
