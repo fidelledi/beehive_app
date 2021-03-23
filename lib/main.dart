@@ -1,10 +1,13 @@
 import 'package:beehive_app/Focus/breathing_exercises.dart';
 import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Landing%20Page/LandingPage.dart';
+import 'package:beehive_app/Landing%20Page/LandingPageUpdate.dart';
 import 'package:beehive_app/Welcome/Login.dart';
 import 'package:beehive_app/Welcome/SignUp.dart';
 import 'package:beehive_app/Welcome/Welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Focus/breathing_exercises.dart';
+import 'package:beehive_app/bnav.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: loginPage(),
+      home: LandingPageUpdate(),
+      //home: Nav(),
       //home: focusMain(),
     );
   }
