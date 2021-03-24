@@ -16,11 +16,11 @@ class podcastMain extends StatefulWidget {
 class _podcastMain extends State<podcastMain> {
   Widget build(BuildContext) {
     return Scaffold(
-      backgroundColor: Color(hexColor('#7D5BA6')),
+      backgroundColor: Color(hexColor('#003249')),
       appBar: AppBar(
         title: Text(' '),
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black),
+          icon: Image.asset('assets/icons/back_icon.png', color: Color(hexColor('#FCFCFC'),),),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -148,7 +148,7 @@ class _podcastMain extends State<podcastMain> {
                       style: TextStyle(
                         fontFamily: 'SF-Pro-Medium',
                         fontSize: 14,
-                        color: Color(hexColor('#333333')),
+                        color: Color(hexColor('#14142A')),
                         letterSpacing: 1.2,
                       ),
                     ),

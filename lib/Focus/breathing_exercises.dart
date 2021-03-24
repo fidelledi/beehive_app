@@ -20,7 +20,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
       appBar: AppBar(
         title: Text(' '),
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black),
+          icon: Image.asset('assets/icons/back_icon.png', color: Color(hexColor('#14142A'),),),
           onPressed: () {
             Navigator.pop(context);
           },

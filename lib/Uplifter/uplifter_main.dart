@@ -1,5 +1,6 @@
+import 'package:beehive_app/Uplifter/articles_main.dart';
+import 'package:beehive_app/Uplifter/motivational_main.dart';
 import 'package:flutter/material.dart';
-import 'package:beehive_app/Focus/breathing_exercises.dart';
 import 'package:beehive_app/Uplifter/podcast.dart';
 
 class uplifterMain extends StatefulWidget {
@@ -20,7 +21,7 @@ class _uplifterMain extends State<uplifterMain> {
       appBar: AppBar(
         title: Text(' '),
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black),
+          icon: Image.asset('assets/icons/back_icon.png', color: Color(hexColor('#14142A'),),),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -96,7 +97,7 @@ class _uplifterMain extends State<uplifterMain> {
                               ],
                             ),
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => motivationalMain())
                                ); }
                       ),),
                           SizedBox(
@@ -207,7 +208,7 @@ class _uplifterMain extends State<uplifterMain> {
                             ),
                       
                           onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => articlesMain(),)
                                ); }
                           ),
                           ),],

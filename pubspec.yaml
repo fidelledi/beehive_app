@@ -54,6 +54,7 @@ flutter:
     - assets/images/person6.jpg
     - assets/images/person7.jpg
     - assets/images/person8.jpg
+    - assets/icons/back_icon.png
 
   fonts:
     - family: SF-Pro-Black

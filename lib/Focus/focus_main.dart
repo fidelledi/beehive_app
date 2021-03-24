@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Focus/breathing_exercises.dart';
+import 'package:beehive_app/Uplifter/uplifter_main.dart';
 
 class focusMain extends StatefulWidget {
   @override
@@ -18,12 +19,12 @@ class _focusMain extends State<focusMain> {
     return Scaffold(
       appBar: AppBar(
         title: Text(' '),
-        // leading: new IconButton(
-        //   icon: new Icon(Icons.arrow_back, color: Colors.black),
-        //   onPressed: () {
-        //     Navigator.pop(context);
-        //   },
-        // ),
+        leading: new IconButton(
+          icon: Image.asset('assets/icons/back_icon.png', color: Color(hexColor('#14142A'),),),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -94,7 +95,7 @@ class _focusMain extends State<focusMain> {
                               ],
                             ),
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => uplifterMain())
                                ); }
                       ),),
                           SizedBox(
