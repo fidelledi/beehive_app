@@ -28,7 +28,7 @@ class LandingPage extends StatelessWidget {
         elevation: 10,
         backgroundColor: Color(0xFFF8CD81) ,
           title: Padding(
-            padding: const EdgeInsets.only(left:150),
+            padding: const EdgeInsets.only(left:120),
             child: Text("BEEHIVE",
             style: TextStyle(
               fontFamily: 'SF-Pro-Bold',
