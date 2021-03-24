@@ -28,7 +28,7 @@ class SocialMain extends StatelessWidget {
           backgroundColor: Color(0xFFF8CD81),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.star_border),
               onPressed: (){},
             ),
           ],
@@ -64,11 +64,15 @@ class SocialMain extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(chat.sender.name,
-                                  style:TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'SF-Pro-Bold'
-                                  ) ,),
+                                Row(
+                                  children: [
+                                    Text(chat.sender.name,
+                                      style:TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'SF-Pro-Bold'
+                                      ) ,),
+                                  ],
+                                ),
                                 chat.sender.isOnline ?
                                 Container(
                                   width: 7,
