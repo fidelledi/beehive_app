@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:beehive_app/Welcome/SignUp.dart';
+import 'package:beehive_app/Welcome/loginupdate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.amber,
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (builder) => signInPage()));
+                      MaterialPageRoute(builder: (builder) => LoginScreen()));
                 },
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20),

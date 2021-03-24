@@ -1,4 +1,7 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -20,6 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LandingPage extends StatelessWidget {
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +50,7 @@ class LandingPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        //child: SingleChildScrollView(
-        child: Column(
+        child: ListView(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 300, top: 25, left: 30),
@@ -82,22 +85,16 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-                child: ListView(
-              padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(30),
-                  height: 400,
-                  width: 500,
-                  decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Calendar(),
-                ),
-              ],
-            )),
+            Container(
+              padding: const EdgeInsets.all(20),
+              height: 400,
+              width: 500,
+              decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Calendar(),
+            ),
           ],
         ),
       ),
@@ -148,41 +145,43 @@ class _bottomNavBarState extends State<bottomNavBar> {
     fontFamily: 'SF-Pro-Bold',
     fontSize: 25,
   );
-  static const List<Widget> _widgetOption = <Widget>[
+  List<Widget> _widgetOption = <Widget>[
     Text(
       'Index 0: Focus',
       style: optionStyle,
     ),
-    Text(
-      'Index 1: Social',
-      style: optionStyle,
-    ),
+    focusMain(),
     Text(
       'Index 3: Uplifter',
       style: optionStyle,
     )
   ];
+  void _onItemTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_objects_outlined),
-            label: 'Focus',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sentiment_satisfied_alt_rounded),
-            label: 'Social',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.insights_rounded),
-            label: 'Uplifter',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFFD17B47),
-      ),
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.emoji_objects_outlined),
+          label: 'Focus',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.sentiment_satisfied_alt_rounded),
+          label: 'Social',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.insights_rounded),
+          label: 'Uplifter',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      onTap: _onItemTap,
+      selectedItemColor: Color(0xFFD17B47),
     );
   }
 }
