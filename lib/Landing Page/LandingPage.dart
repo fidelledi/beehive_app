@@ -25,6 +25,7 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 10,
         backgroundColor: Color(0xFFF8CD81) ,
           title: Padding(
             padding: const EdgeInsets.only(left:150),
@@ -45,55 +46,56 @@ class LandingPage extends StatelessWidget {
               onPressed: () {}),
         ],
       ),
-      body: Container(
-          //child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right:300,top:25,left:30),
-                  child: Text("Hello!",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'SF-Pro-Text',
-                    color: Colors.black,
-                  ),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right:240 ,top:3,left:30),
-                  child: Text("Bee B. Co",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontFamily: 'SF-Pro-Bold',
-                    color: Colors.black,
-                  ),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right:80, top:3, left:30),
-                  child: Text("De La Salle - College of St Benilde",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'SF-Pro-Text',
-                    color: Colors.black,
-                  ),),
-                ),
-                Expanded(
-                    child: ListView(
-                      padding: EdgeInsets.only(top:30, left: 20, right:20),
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(30),
-                          height: 400, width: 500,
-                          decoration: BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: BorderRadius.circular(20),
+      body: SafeArea(
+        child: Container(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right:300,top:25,left:30),
+                    child: Text("Hello!",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'SF-Pro-Text',
+                      color: Colors.black,
+                    ),),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right:240 ,top:3,left:30),
+                    child: Text("Bee B. Co",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'SF-Pro-Bold',
+                      color: Colors.black,
+                    ),),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right:80, top:3, left:30),
+                    child: Text("De La Salle - College of St Benilde",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'SF-Pro-Text',
+                      color: Colors.black,
+                    ),),
+                  ),
+                  Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.only(top:30, left: 20, right:20),
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(30),
+                            height: 400, width: 500,
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Calendar(),
                           ),
-                          child: Calendar(),
-                        ),
-                      ],
-                    )),
-              ],
+                        ],
+                      )),
+                ],
+              ),
             ),
-          ),
+      ),
       bottomNavigationBar: bottomNavBar(),
     );
   }
@@ -157,8 +159,7 @@ class _bottomNavBarState extends State<bottomNavBar> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+    return  BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.emoji_objects_outlined),
@@ -175,7 +176,6 @@ class _bottomNavBarState extends State<bottomNavBar> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFFD17B47),
-      ),
     );
   }
   }

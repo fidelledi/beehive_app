@@ -1,5 +1,6 @@
 import 'package:beehive_app/Focus/breathing_exercises.dart';
 import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/SocialModel/SocialMain.dart';
 import 'package:beehive_app/Welcome/Login.dart';
 import 'package:beehive_app/Welcome/SignUp.dart';
 import 'package:beehive_app/Welcome/Welcome.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: loginPage(),
+      home: SocialMain(),
       //home: focusMain(),
     );
   }
