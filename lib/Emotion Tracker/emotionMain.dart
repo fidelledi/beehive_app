@@ -23,9 +23,16 @@ class emotionTracker extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right:320, top: 20),
+            child: IconButton(
+                icon: Icon(Icons.arrow_back_ios_rounded,
+                color: Colors.black54,),
+                onPressed: (){}),
+          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(top:80),
+              padding: const EdgeInsets.only(top:20),
               child: Text('How are you feeling today',
               style: TextStyle(
                 fontFamily: 'SF-Pro-Bold',
@@ -33,19 +40,12 @@ class emotionTracker extends StatelessWidget {
               ),),
             ),
           ),
+          Container(
+            width:300,
+              height: 300,
+              child: Image.asset('assets/images/beelogo.PNG')),
           Padding(
-            padding: const EdgeInsets.only(top:60),
-            child: Container(
-              width: 190,
-              height: 190,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.black12,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 1),
             child: Container(
               width: 230,
               height: 60,
