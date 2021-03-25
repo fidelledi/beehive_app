@@ -1,3 +1,4 @@
+import 'package:beehive_app/Emotion%20Tracker/angryPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -54,7 +55,7 @@ class emotionTracker extends StatelessWidget {
                 child: FlatButton(
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40,),
                     color: Color(0xFFF8CD81),
-                    onPressed: (){},
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => happyPage()));},
                 child: Text('Happy',
                 style: TextStyle(
                   color: Colors.white,
@@ -72,8 +73,8 @@ class emotionTracker extends StatelessWidget {
                 borderRadius: BorderRadius.circular(29),
                 child: FlatButton(
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40,),
-                    onPressed: (){},
                     color: Color(0xFFD17B47),
+                    onPressed: (){},
                     child: Text('Neutral',
                     style: TextStyle(
                       color: Colors.white,

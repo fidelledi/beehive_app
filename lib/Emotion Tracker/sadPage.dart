@@ -22,7 +22,7 @@ class happyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8CD81),
+      backgroundColor: Color(0xFF6E7191),
       body: Column(
         children: [
           Padding(
@@ -85,12 +85,12 @@ class happyPage extends StatelessWidget {
             child: Container(
               width: 270,
               height: 270,
-              child: Image.asset('assets/images/beehappy.PNG'),
+              child: Image.asset('assets/images/beesad.PNG'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top:15),
-            child: Text('Happy',
+            child: Text('Sad',
               style: TextStyle(
                 fontFamily: 'SF-Pro-Bold',
                 fontSize: 50,
@@ -103,7 +103,7 @@ class happyPage extends StatelessWidget {
               child: TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                    hintText: "I am happy because..."
+                    hintText: "I am sad because..."
                 ),
               ),
             ),
