@@ -55,6 +55,8 @@ flutter:
     - assets/images/person7.jpg
     - assets/images/person8.jpg
     - assets/icons/back_icon.png
+    - assets/images/beelogo.PNG
+    - assets/images/beehappy.PNG
 
   fonts:
     - family: SF-Pro-Black
