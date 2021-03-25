@@ -22,13 +22,13 @@ class happyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8CD81),
+      backgroundColor: Color(0xFFD17B47),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(left:300, top:7),
             child: IconButton(icon: Icon(
-              Icons.highlight_off_rounded,color: Colors.white,),
+                Icons.highlight_off_rounded,color: Colors.white,),
                 onPressed: (){}),
           ),
           Row(
@@ -85,12 +85,12 @@ class happyPage extends StatelessWidget {
             child: Container(
               width: 270,
               height: 270,
-              child: Image.asset('assets/images/beehappy.PNG'),
+              child: Image.asset('assets/images/beeneutral.PNG'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top:15),
-            child: Text('Happy',
+            child: Text('Neutral',
               style: TextStyle(
                 fontFamily: 'SF-Pro-Bold',
                 fontSize: 50,
@@ -103,7 +103,7 @@ class happyPage extends StatelessWidget {
               child: TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                    hintText: "I am happy because..."
+                    hintText: "I am neutral because..."
                 ),
               ),
             ),
@@ -117,7 +117,7 @@ class happyPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(29),
                 child: FlatButton(
                     padding: EdgeInsets.symmetric(horizontal: 40,vertical: 8),
-                    color:Color(0xFFD17B47),
+                    color:Color(0xFF6E7191),
                     onPressed: (){},
                     child: Text('Done',
                       style: TextStyle(

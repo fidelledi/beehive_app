@@ -57,6 +57,9 @@ flutter:
     - assets/icons/back_icon.png
     - assets/images/beelogo.PNG
     - assets/images/beehappy.PNG
+    - assets/images/beeneutral.PNG
+    - assets/images/beesad.PNG
+    - assets/images/beeangry.PNG
 
   fonts:
     - family: SF-Pro-Black
