@@ -1,11 +1,14 @@
-import 'dart:ui';
+import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:provider/provider.dart';
+//import 'dart:js';
 
 void main() {
   runApp(MyApp());
@@ -42,11 +45,12 @@ class LandingPage extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.black45,
-              ),
-              onPressed: () {}),
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black45,
+            ),
+            onPressed: () {},
+          ),
         ],
       ),
       body: Container(
@@ -94,6 +98,12 @@ class LandingPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Calendar(),
+            ),
+            RaisedButton(
+              onPressed: () {
+                context.read<AuthenticationService>().signOut();
+              },
+              child: Text("Sign out"),
             ),
           ],
         ),
