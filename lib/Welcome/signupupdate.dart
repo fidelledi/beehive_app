@@ -1,28 +1,16 @@
+import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
-
+import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Landing%20Page/LandingPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Beehive Application',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-      home: signInPage(),
-    );
-  }
-}
-
-class signInPage extends StatelessWidget {
+class SignupUpdate extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +67,7 @@ class signInPage extends StatelessWidget {
             EmailTextInput(
               child: TextField(
                 keyboardType: TextInputType.emailAddress,
+                controller: emailController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.mail_rounded,
@@ -91,6 +80,7 @@ class signInPage extends StatelessWidget {
             PasswordTextInput(
               child: TextField(
                 obscureText: true,
+                controller: passwordController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock_open_rounded,
@@ -104,7 +94,12 @@ class signInPage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 30),
               child: FlatButton(
                   color: Colors.amber,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<AuthenticationService>().signUp(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim(),
+                        );
+                  },
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20),
                   ),

@@ -1,19 +1,17 @@
+//import 'dart:js';
+import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Landing%20Page/LandingPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  String _email, _password;
-  final auth = FirebaseAuth.instance;
+class SignInPage extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,31 +49,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextFieldContainer(
                   child: TextField(
                     keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
                     decoration: InputDecoration(
                       icon: Icon(Icons.account_circle_rounded,
                           color: Colors.black45),
                       hintText: "Email",
                     ),
-                    onChanged: (value) {
-                      setState(() {
-                        _email = value.trim();
-                      });
-                    },
                   ),
                 ),
               ),
               TextFieldContainer2(
                 child: TextField(
                   obscureText: true,
+                  controller: passwordController,
                   decoration: InputDecoration(
                     icon: Icon(Icons.lock_open_rounded, color: Colors.black45),
                     hintText: "Password",
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _password = value.trim();
-                    });
-                  },
                 ),
               ),
               Row(
@@ -99,10 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: FlatButton(
                     color: Colors.amber,
                     onPressed: () {
-                      auth.signInWithEmailAndPassword(
-                          email: _email, password: _password);
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => LandingPage()));
+                      context.read<AuthenticationService>().signIn(
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim(),
+                          );
                     },
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(20),
@@ -116,16 +106,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     )),
               ),
-              RaisedButton(
-                color: Theme.of(context).accentColor,
-                child: Text('Signup'),
-                onPressed: () {
-                  auth.createUserWithEmailAndPassword(
-                      email: _email, password: _password);
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => LandingPage()));
-                },
-              ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: AlreadyHaveAnAccountCheck(),
@@ -133,30 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class TextFieldContainer2 extends StatelessWidget {
-  final Widget child;
-  const TextFieldContainer2({
-    Key key,
-    this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-        width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
-        child: child,
       ),
     );
   }
@@ -197,6 +153,30 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class TextFieldContainer2 extends StatelessWidget {
+  final Widget child;
+  const TextFieldContainer2({
+    Key key,
+    this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+        width: 370,
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(29),
+        ),
+        child: child,
+      ),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:beehive_app/Landing%20Page/LandingPageUpdate.dart';
 import 'package:flutter/material.dart';
 
 class Nav extends StatefulWidget {
