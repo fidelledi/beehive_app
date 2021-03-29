@@ -60,6 +60,7 @@ flutter:
     - assets/images/beeneutral.PNG
     - assets/images/beesad.PNG
     - assets/images/beeangry.PNG
+    - assets/images/mainbee.png
 
   fonts:
     - family: SF-Pro-Black
