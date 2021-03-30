@@ -1,4 +1,5 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:beehive_app/Emotion%20Tracker/trackerMain.dart';
 import 'package:beehive_app/bnav.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
@@ -296,6 +297,9 @@ class LandingPage extends StatelessWidget {
                     )),
                   ),
                   GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => emotionTrackerMain())
+                      ); },
                     child: Padding(
                       padding: const EdgeInsets.only(top:10,left:40),
                       child: Container(

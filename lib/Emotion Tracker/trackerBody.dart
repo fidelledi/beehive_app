@@ -1,3 +1,4 @@
+import 'package:beehive_app/Emotion%20Tracker/subjectTracker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:beehive_app/Emotion Tracker/trackerMain.dart';
@@ -82,19 +83,24 @@ class _emotionTrackerBodyState extends State<emotionTrackerBody> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top:20,left:38),
-                    child: Container(
-                      width: 320,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(23),
-                        color: Color(0xFFF7F7FC),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 7,
-                            blurRadius: 7,
-                          ),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => subjectTracker())
+                        ); },
+                      child: Container(
+                        width: 320,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(23),
+                          color: Color(0xFFF7F7FC),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 7,
+                              blurRadius: 7,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   )
