@@ -28,50 +28,47 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 130, 30, 30),
-            child: Image.asset('assets/images/bee.jpg'),
-          ),
-          Text(
-            'Welcome!',
-            style: TextStyle(
-              color: Colors.black54,
+            Padding(
+              padding: const EdgeInsets.only(top:50),
+              child: Container(
+                margin:EdgeInsets.all(50),
+                  child: Image.asset('assets/images/welcomeBee.png')),
+            ),
+          Text('Welcome',
+              style: TextStyle(
               fontSize: 40,
               fontFamily: 'SF-Pro-Bold',
-            ),
+              color: Colors.black,
+              letterSpacing: 1.2,)
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit esdada",
-              textAlign: TextAlign.center,
+          Text('Dont worry bee happy',
               style: TextStyle(
-                color: Colors.black54,
-                fontSize: 17,
-                fontFamily: 'SF-Pro-Thin',
+                fontSize: 20,
+                fontFamily: 'SF-Pro-Text',
+                color: Colors.black,
+                letterSpacing: 1.2,)),
+          Padding(
+            padding: const EdgeInsets.only(top:180),
+            child: Container(
+              width: 170,
+              height:50 ,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(29),
+                child: FlatButton(
+                    padding: EdgeInsets.symmetric(horizontal: 40,vertical: 8),
+                    color:Color(0xFFD17B47),
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage())
+                      ); },
+                    child: Text('Lets Go',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'SF-Pro-Bold',
+                        fontSize: 18,
+                      ),)),
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 100),
-            child: FlatButton(
-                color: Colors.amber,
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (builder) => SignInPage()));
-                },
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(20),
-                ),
-                child: Text(
-                  "Lets Go!",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'SF-Pro-Bold',
-                    color: Colors.white,
-                  ),
-                )),
-          )
         ],
       ),
     );
