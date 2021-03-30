@@ -104,14 +104,9 @@ class SignupUpdate extends StatelessWidget {
                     context.read<AuthenticationService>().signUp(
                           email: emailController.text.trim(),
                           password: passwordController.text.trim(),
+                          name: nameController.text.trim(),
+                          school: schoolController.text.trim(),
                         );
-                    if (auth.currentUser != null) {
-                      await create(
-                        uid: auth.currentUser.uid,
-                        name: nameController.text,
-                        school: schoolController.text,
-                      );
-                    }
                   },
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20),
