@@ -68,6 +68,10 @@ flutter:
     - assets/icons/extra_button.png
     - assets/images/pom_group.png
     - assets/images/pom_solo.png
+    - assets/images/hexagonPurple.png
+    - assets/images/subjectTrackerBee.png
+    - assets/images/honey.png
+    - assets/images/hexagonYellow.png
 
   fonts:
     - family: SF-Pro-Black

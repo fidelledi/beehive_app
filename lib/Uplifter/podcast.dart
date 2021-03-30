@@ -50,7 +50,7 @@ class _podcastMain extends State<podcastMain> {
                               image: AssetImage(
                                 'assets/images/podcast_bee.png'
                               ),
-                              fit: BoxFit.fill,
+                              // fit: BoxFit.fill,
                             ),
                       boxShadow: [
                         BoxShadow(
@@ -158,7 +158,7 @@ class _podcastMain extends State<podcastMain> {
                               image: AssetImage(
                                 'assets/images/podcast_bee.png'
                               ),
-                              fit: BoxFit.fill,
+                              // fit: BoxFit.fill,
                             ),
                           ),
                         ),

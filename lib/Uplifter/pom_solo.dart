@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/pomSolo_work.dart';
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/pomSolo_break.dart';
 
 class pomSolo extends StatefulWidget {
   @override
@@ -77,7 +79,22 @@ class _pomSolo extends State<pomSolo> {
                 ),
               ),
             ),
-            // ListView.builder(itemBuilder: null)
+            workSessionlist(),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Text(
+                  'Breaks',
+                  style: TextStyle(
+                    fontFamily: 'SF-Pro-Medium',
+                    color: ColorConstants.textColor,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            breaksList(),
           ],
         ),
       ),
@@ -85,25 +102,3 @@ class _pomSolo extends State<pomSolo> {
   }
 }
 
-class listDataItem extends StatelessWidget {
-  String itemName;
-  listDataItem(this.itemName);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        child: Row(children: [
-          CircleAvatar(
-            child: Text(itemName[0]),
-          ),
-          Text(itemName,
-          style: TextStyle(
-            fontSize: 14,
-          )
-          ),
-        ],),
-      ),
-    );
-  }
-}

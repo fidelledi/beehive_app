@@ -19,6 +19,7 @@ class ColorConstants {
   static Color titleColor = hexToColor('#14142A');
   static Color buttonTextColor = hexToColor('#F7F7FC');
   static Color whiteBgImage = hexToColor('#FCFCFC');
+  static Color labelColor = hexToColor('#6E7191');
 }
 
 // const kLabel = Color(0x6E7191);
