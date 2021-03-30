@@ -28,7 +28,9 @@ class SocialMain extends StatelessWidget {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.star_border),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
