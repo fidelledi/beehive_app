@@ -73,6 +73,7 @@ flutter:
     - assets/images/honey.png
     - assets/images/hexagonYellow.png
     - assets/images/trackerBees.png
+    - assets/images/welcomeBee.png
 
   fonts:
     - family: SF-Pro-Black
