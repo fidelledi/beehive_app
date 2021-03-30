@@ -1,4 +1,5 @@
 import 'package:beehive_app/Emotion%20Tracker/trackerBody.dart';
+import 'package:beehive_app/Landing%20Page/LandingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Emotion Calendar/emotionCalendarBody.dart';
 import 'package:beehive_app/Emotion Tracker/trackerMain.dart';
@@ -35,7 +36,9 @@ class _emotionTrackerMainState extends State<emotionTrackerMain> {
           icon: Icon(Icons.arrow_back_ios_rounded,
             color: Colors.black,
             size: 25,),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage())
+            ); },
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,

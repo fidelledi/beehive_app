@@ -1,3 +1,4 @@
+import 'package:beehive_app/Emotion%20Tracker/trackerMain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -34,9 +35,14 @@ class _subjectTrackerState extends State<subjectTracker> {
         backgroundColor: Color(0xFFF8CD81),
         title: Text(' '),
         leading: IconButton(
-          icon:Icon(Icons.arrow_back_ios_rounded,
-            color: Colors.black,),
-        ),
+          icon:IconButton(
+              icon: Icon(Icons.arrow_back_ios_rounded,
+              color: Colors.black,),
+              onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => emotionTrackerMain())
+              ); },
+              ),
+      ),
       ),
       body: Stack(
         children: [
@@ -82,7 +88,7 @@ class _subjectTrackerState extends State<subjectTracker> {
           Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 20,bottom: 10),
+                padding: const EdgeInsets.only(right: 20,bottom: 90),
                 child: Container(
                   margin: EdgeInsets.all(45),
                   child: Slider(
@@ -178,7 +184,7 @@ class _subjectTrackerState extends State<subjectTracker> {
           Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top:308,right:20),
+                padding: const EdgeInsets.only(top:308,right:20,bottom: 90),
                 child: Container(
                   margin: EdgeInsets.all(45),
                   child: Slider(
