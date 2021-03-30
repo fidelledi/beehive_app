@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:beehive_app/Backends/firestore.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
 
+  FirebaseAuth auth = FirebaseAuth.instance;
   AuthenticationService(this._firebaseAuth);
   Stream<User> get authStatechanges => _firebaseAuth.authStateChanges();
 
@@ -20,10 +22,21 @@ class AuthenticationService {
     }
   }
 
-  Future<String> signUp({String email, String password}) async {
+  Future<String> signUp(
+      {String email, String password, String name, String school}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await create(
+        uid: auth.currentUser.uid,
+        name: name,
+        school: school,
+      );
+
+      Future<String> getCurrentUID() async {
+        return (auth.currentUser).uid;
+      }
+
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       return e.message;
