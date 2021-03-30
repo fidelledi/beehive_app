@@ -57,7 +57,7 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final FirebaseUser = context.watch<User>();
     if (FirebaseUser != null) {
-      return LandingPage(); // <-------- change this page if you need to test some pages
+      return Nav(); // <-------- change this page if you need to test some pages
     }
     return SignInPage();
   }
