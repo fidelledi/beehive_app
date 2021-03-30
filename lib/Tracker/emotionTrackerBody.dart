@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:beehive_app/Emotion Tracker/emotionTrackerMain.dart';
+import 'package:beehive_app/Tracker/emotionTrackerMain.dart';
 
 class emotionTrackerBody extends StatefulWidget {
   @override

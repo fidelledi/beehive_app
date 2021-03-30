@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Emotion Calendar/emotionCalendarBody.dart';
-import 'package:beehive_app/Emotion Tracker/emotionTrackerBody.dart';
+import 'package:beehive_app/Tracker/emotionTrackerBody.dart';
 
 
 void main() {

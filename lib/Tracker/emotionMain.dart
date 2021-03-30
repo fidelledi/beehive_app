@@ -1,4 +1,4 @@
-import 'package:beehive_app/Emotion%20Tracker/angryPage.dart';
+import 'package:beehive_app/Tracker/angryPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

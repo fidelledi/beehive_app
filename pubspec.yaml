@@ -66,6 +66,8 @@ flutter:
     - assets/images/beeangry.PNG
     - assets/images/honey.png
     - assets/images/hexagon.PNG
+    - assets/images/subjectTrackerBee.png
+    - assets/images/hexagonPurple.png
   fonts:
     - family: SF-Pro-Black
       fonts:
