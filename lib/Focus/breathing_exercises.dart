@@ -1,3 +1,4 @@
+import 'package:beehive_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class breathingExercisePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class breathingExercisePage extends StatefulWidget {
 class _breathingExercisePage extends State<breathingExercisePage> {
   Widget build(BuildContext) {
     return Scaffold(
-      backgroundColor: Color(hexColor('#FFFFFF')),
+      backgroundColor: ColorConstants.appBarColor,
       appBar: AppBar(
         title: Text(' '),
         leading: new IconButton(
@@ -86,7 +87,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
                     "Improve Focus",
                     style: TextStyle(
                       fontFamily: 'SF-Pro-Bold',
-                      color: Color(hexColor('#14142A'),),
+                      color: Color(hexColor('#003249'),),
                       fontSize: 20,
                       letterSpacing: 1.2,
                     ),
@@ -132,7 +133,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
                     "Reduce Stress",
                     style: TextStyle(
                       fontFamily: 'SF-Pro-Bold',
-                      color: Color(hexColor('#14142A'),),
+                      color: Color(hexColor('#003249'),),
                       fontSize: 20,
                       letterSpacing: 1.2,
                     ),
@@ -179,7 +180,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
                     "Am I Anxious?",
                     style: TextStyle(
                       fontFamily: 'SF-Pro-Bold',
-                      color: Color(hexColor('#14142A'),),
+                      color: Color(hexColor('#003249'),),
                       fontSize: 20,
                       letterSpacing: 1.2,
                     ),

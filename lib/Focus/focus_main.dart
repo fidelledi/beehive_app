@@ -1,6 +1,7 @@
+import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Focus/breathing_exercises.dart';
-import 'package:beehive_app/Uplifter/uplifter_main.dart';
+import 'package:beehive_app/Uplifter/dialog_helper.dart';
 
 class focusMain extends StatefulWidget {
   @override
@@ -95,8 +96,8 @@ class _focusMain extends State<focusMain> {
                               ],
                             ),
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => uplifterMain())
-                               ); }
+                              DialogHelper.exit(context);
+                               }
                       ),),
                           SizedBox(
                             height: 32,
@@ -150,7 +151,7 @@ class _focusMain extends State<focusMain> {
                             ),
                       
                           onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => breathingExercisePage())
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => uplifterMain())
                                ); }
                           ),
                           ),],

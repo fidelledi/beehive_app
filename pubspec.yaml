@@ -64,6 +64,10 @@ flutter:
     - assets/images/beeneutral.PNG
     - assets/images/beesad.PNG
     - assets/images/beeangry.PNG
+    - assets/images/podcast_bee.png
+    - assets/icons/extra_button.png
+    - assets/images/pom_group.png
+    - assets/images/pom_solo.png
 
   fonts:
     - family: SF-Pro-Black
