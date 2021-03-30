@@ -25,12 +25,14 @@ class emotionCalendarBody extends StatelessWidget {
                 ),
               ),
             ),
+          ],
+        ),
             SizedBox(
               height: size.height,
               child: Stack(
                 children: [
                     Container(
-                      margin: EdgeInsets.only(top:size.height * 0.05),
+                      margin: EdgeInsets.only(top:size.height * 0.06),
                       height: size.height,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -374,208 +376,211 @@ class emotionCalendarBody extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          SizedBox(
-                            height:280,
-                            width: 280,
-                            child: Stack(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(top:25),
-                                  decoration: BoxDecoration(
-                                    color: Colors.black12,
-                                    borderRadius: BorderRadius.circular(32),
+                          Padding(
+                            padding: const EdgeInsets.only(top:40),
+                            child: SizedBox(
+                              height:280,
+                              width: 280,
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top:25),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black12,
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
                                   ),
-                                ),
-                                Stack(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:40,left:70),
-                                      child: RichText(
-                                        textAlign: TextAlign.center,
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                  text: 'Total no. of days',
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Color(0xFF6E7191),
-                                                    fontFamily: 'SF-Pro-Bold',
-                                                  )
-                                              ),
-                                              TextSpan(
-                                                text: '\n',
-                                              ),
-                                              TextSpan(
-                                                  text: '31',
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Color(0xFFD17B47),
-                                                    fontFamily: 'SF-Pro-Bold',
-                                                  )
-                                              ),
-                                            ]
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:105, left:30),
-                                      child: Container(
-                                        width: 90,
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFF8CD81),
-                                          borderRadius: BorderRadius.circular(20),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(top:10),
-                                          child: RichText(
-                                            textAlign: TextAlign.center,
-                                              text: TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                    text: 'Happy',
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:40,left:70),
+                                        child: RichText(
+                                          textAlign: TextAlign.center,
+                                          text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                    text: 'Total no. of days',
                                                     style: TextStyle(
-                                                      fontFamily: 'SF-Pro-Bold',
-                                                      color: Color(0xFF6E7191),
                                                       fontSize: 18,
-                                                    )
-                                                  ),
-                                                  TextSpan(
-                                                    text: '\n'
-                                                  ),
-                                                  TextSpan(
-                                                    text:'15',
-                                                    style: TextStyle(
+                                                      color: Color(0xFF6E7191),
                                                       fontFamily: 'SF-Pro-Bold',
-                                                      color: Color(0xFFD17B47),
+                                                    )
+                                                ),
+                                                TextSpan(
+                                                  text: '\n',
+                                                ),
+                                                TextSpan(
+                                                    text: '31',
+                                                    style: TextStyle(
                                                       fontSize: 16,
+                                                      color: Color(0xFFD17B47),
+                                                      fontFamily: 'SF-Pro-Bold',
                                                     )
-                                                  )
-                                                ]
-                                              )),
+                                                ),
+                                              ]
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:105, left: 160),
-                                      child: Container(
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:105, left:30),
+                                        child: Container(
                                           width: 90,
                                           height: 70,
                                           decoration: BoxDecoration(
-                                          color: Color(0xFFF8CD81),
-                                          borderRadius: BorderRadius.circular(20),
-                                      ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(top:10),
-                                          child: RichText(
+                                            color: Color(0xFFF8CD81),
+                                            borderRadius: BorderRadius.circular(20),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top:10),
+                                            child: RichText(
                                               textAlign: TextAlign.center,
-                                              text: TextSpan(
+                                                text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                        text: 'Neutral',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFF6E7191),
-                                                          fontSize: 18,
-                                                        )
+                                                      text: 'Happy',
+                                                      style: TextStyle(
+                                                        fontFamily: 'SF-Pro-Bold',
+                                                        color: Color(0xFF6E7191),
+                                                        fontSize: 18,
+                                                      )
                                                     ),
                                                     TextSpan(
-                                                        text: '\n'
+                                                      text: '\n'
                                                     ),
                                                     TextSpan(
-                                                        text:'5',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFFD17B47),
-                                                          fontSize: 16,
-                                                        )
+                                                      text:'15',
+                                                      style: TextStyle(
+                                                        fontFamily: 'SF-Pro-Bold',
+                                                        color: Color(0xFFD17B47),
+                                                        fontSize: 16,
+                                                      )
                                                     )
                                                   ]
-                                              )),
+                                                )),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:193,left:30),
-                                      child: Container(
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:105, left: 160),
+                                        child: Container(
+                                            width: 90,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                            color: Color(0xFFF8CD81),
+                                            borderRadius: BorderRadius.circular(20),
+                                        ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top:10),
+                                            child: RichText(
+                                                textAlign: TextAlign.center,
+                                                text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                          text: 'Neutral',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFF6E7191),
+                                                            fontSize: 18,
+                                                          )
+                                                      ),
+                                                      TextSpan(
+                                                          text: '\n'
+                                                      ),
+                                                      TextSpan(
+                                                          text:'5',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFFD17B47),
+                                                            fontSize: 16,
+                                                          )
+                                                      )
+                                                    ]
+                                                )),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:193,left:30),
+                                        child: Container(
+                                            width: 90,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                            color: Color(0xFFF8CD81),
+                                            borderRadius: BorderRadius.circular(20),
+                                        ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top:10),
+                                            child: RichText(
+                                                textAlign: TextAlign.center,
+                                                text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                          text: 'Sad',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFF6E7191),
+                                                            fontSize: 18,
+                                                          )
+                                                      ),
+                                                      TextSpan(
+                                                          text: '\n'
+                                                      ),
+                                                      TextSpan(
+                                                          text:'6',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFFD17B47),
+                                                            fontSize: 16,
+                                                          )
+                                                      )
+                                                    ]
+                                                )),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:193, left:160),
+                                        child: Container(
                                           width: 90,
                                           height: 70,
                                           decoration: BoxDecoration(
-                                          color: Color(0xFFF8CD81),
-                                          borderRadius: BorderRadius.circular(20),
-                                      ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(top:10),
-                                          child: RichText(
-                                              textAlign: TextAlign.center,
-                                              text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                        text: 'Sad',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFF6E7191),
-                                                          fontSize: 18,
-                                                        )
-                                                    ),
-                                                    TextSpan(
-                                                        text: '\n'
-                                                    ),
-                                                    TextSpan(
-                                                        text:'6',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFFD17B47),
-                                                          fontSize: 16,
-                                                        )
-                                                    )
-                                                  ]
-                                              )),
+                                            color: Color(0xFFF8CD81),
+                                            borderRadius: BorderRadius.circular(20),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top:10),
+                                            child: RichText(
+                                                textAlign: TextAlign.center,
+                                                text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                          text: 'Angry',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFF6E7191),
+                                                            fontSize: 18,
+                                                          )
+                                                      ),
+                                                      TextSpan(
+                                                          text: '\n'
+                                                      ),
+                                                      TextSpan(
+                                                          text:'5',
+                                                          style: TextStyle(
+                                                            fontFamily: 'SF-Pro-Bold',
+                                                            color: Color(0xFFD17B47),
+                                                            fontSize: 16,
+                                                          )
+                                                      )
+                                                    ]
+                                                )),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:193, left:160),
-                                      child: Container(
-                                        width: 90,
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFF8CD81),
-                                          borderRadius: BorderRadius.circular(20),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(top:10),
-                                          child: RichText(
-                                              textAlign: TextAlign.center,
-                                              text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                        text: 'Angry',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFF6E7191),
-                                                          fontSize: 18,
-                                                        )
-                                                    ),
-                                                    TextSpan(
-                                                        text: '\n'
-                                                    ),
-                                                    TextSpan(
-                                                        text:'5',
-                                                        style: TextStyle(
-                                                          fontFamily: 'SF-Pro-Bold',
-                                                          color: Color(0xFFD17B47),
-                                                          fontSize: 16,
-                                                        )
-                                                    )
-                                                  ]
-                                              )),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
 
@@ -586,8 +591,6 @@ class emotionCalendarBody extends StatelessWidget {
                 ],
               ),
             )
-          ],
-        )
       ],
     );
   }
