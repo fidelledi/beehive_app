@@ -20,12 +20,6 @@ class _uplifterMain extends State<uplifterMain> {
     return Scaffold(
       appBar: AppBar(
         title: Text(' '),
-        leading: new IconButton(
-          icon: Image.asset('assets/icons/back_icon.png', color: Color(hexColor('#14142A'),),),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),

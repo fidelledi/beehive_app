@@ -14,6 +14,7 @@ hexColor(String colorhexcode) {
 }
 
 class _breathingExercisePage extends State<breathingExercisePage> {
+  @override
   Widget build(BuildContext) {
     return Scaffold(
       backgroundColor: ColorConstants.appBarColor,
