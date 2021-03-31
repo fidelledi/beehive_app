@@ -14,6 +14,13 @@ import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'dart:js';
 
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized(); // after upgrading flutter this is now necessary
+
+  runApp(LandingPage());
+}
+
 final CollectionReference usersRef =
     FirebaseFirestore.instance.collection('Users');
 
@@ -29,6 +36,35 @@ class _MyApp extends State<Myapp> {
     return MaterialApp(
       title: 'Beehive',
       home: LandingPage(),
+    );
+  }
+}
+
+class GetUserName extends StatelessWidget {
+  final String documentId;
+
+  GetUserName(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(documentId).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data();
+          return Text(data['Name']);
+        }
+
+        return Text("loading");
+      },
     );
   }
 }
@@ -68,37 +104,38 @@ class LandingPage extends StatelessWidget {
           children: [
             Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: RichText(
-                      text: TextSpan(children: [
-                    TextSpan(
-                        text: 'Hello',
-                        style: TextStyle(
-                            fontFamily: 'SF-Pro-Text',
-                            fontSize: 16,
-                            color: Color(0xFF6E7191),
-                            letterSpacing: 1.2)),
-                    TextSpan(text: '\n'),
-                    TextSpan(
-                        text: 'Bee B. Co',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'SF-Pro-Bold',
-                          color: Colors.black87,
-                          letterSpacing: 1.2,
-                        )),
-                    TextSpan(text: '\n'),
-                    TextSpan(
-                        text: 'De La Salle-College of St Benilde',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'SF-Pro-Text',
-                          color: Color(0xFF6E7191),
-                          letterSpacing: 1.2,
-                        ))
-                  ])),
-                )
+                GetUserName(auth.currentUser.uid),
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 20, left: 30),
+                //   child: RichText(
+                //       text: TextSpan(children: [
+                //     TextSpan(
+                //         text: 'Hello',
+                //         style: TextStyle(
+                //             fontFamily: 'SF-Pro-Text',
+                //             fontSize: 16,
+                //             color: Color(0xFF6E7191),
+                //             letterSpacing: 1.2)),
+                //     TextSpan(text: '\n'),
+                //     // TextSpan(
+                //     //     text: _getUser(),
+                //     //     style: TextStyle(
+                //     //       fontSize: 24,
+                //     //       fontFamily: 'SF-Pro-Bold',
+                //     //       color: Colors.black87,
+                //     //       letterSpacing: 1.2,
+                //     //     )),
+                //     // TextSpan(text: '\n'),
+                //     // TextSpan(
+                //     //     text: 'De La Salle-College of St Benilde',
+                //     //     style: TextStyle(
+                //     //       fontSize: 16,
+                //     //       fontFamily: 'SF-Pro-Text',
+                //     //       color: Color(0xFF6E7191),
+                //     //       letterSpacing: 1.2,
+                //     //     ))
+                //   ])),
+                // )
               ],
             ),
             Stack(
@@ -388,3 +425,6 @@ class _CalendarState extends State<Calendar> {
     ));
   }
 }
+
+
+

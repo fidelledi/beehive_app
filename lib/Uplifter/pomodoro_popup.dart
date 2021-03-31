@@ -1,4 +1,5 @@
 
+import 'package:beehive_app/Uplifter/pomGroup.dart';
 import 'package:beehive_app/Uplifter/pom_solo.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
@@ -67,7 +68,9 @@ _buildChild(BuildContext context) => Container(
             SizedBox(
               width: 20,
             ),
-            InkWell(onTap: () {}, 
+            InkWell(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => pomGroup(),),);
+            }, 
             child: Container(
               width: 126,
               height: 40,

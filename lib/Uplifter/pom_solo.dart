@@ -1,5 +1,6 @@
 
 import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Uplifter/pomGroup.dart';
 import 'package:beehive_app/Uplifter/pom_solo_started.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:flutter/material.dart';
@@ -41,10 +42,10 @@ class _pomSolo extends State<pomSolo> {
                 ],
                 onSelected: (int choice) {
                   if (choice == 1) {
-                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => focusMain(),),);
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => pomGroup(),),);
                   }
                   else if (choice == 2) {
-                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => uplifterMain(),),);
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => pomSolo(),),);
                   }
                 },),
           ],

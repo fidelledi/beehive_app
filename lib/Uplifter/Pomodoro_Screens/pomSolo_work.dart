@@ -15,7 +15,7 @@ class _workSessionlist extends State<workSessionlist> {
       children: [
         Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 15, bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 20, top: 16),
                     child: Container(
                       height: 80,
                       width: 347,
