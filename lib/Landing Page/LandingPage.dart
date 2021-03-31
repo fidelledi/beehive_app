@@ -10,9 +10,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
+import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'dart:js';
 
-class MyApp extends StatelessWidget {
+final CollectionReference usersRef =
+    FirebaseFirestore.instance.collection('Users');
+
+class Myapp extends StatefulWidget {
+  @override
+  _MyApp createState() => _MyApp();
+}
+
+class _MyApp extends State<Myapp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -229,7 +239,14 @@ class LandingPage extends StatelessWidget {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 40, vertical: 8),
                                   color: Color(0xFFD17B47),
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                    final String id = await context
+                                        .read<AuthenticationService>()
+                                        .getCurrentUID();
+                                    final DocumentSnapshot docs =
+                                        await usersRef.doc(id).get();
+                                    print(docs.data());
+                                  },
                                   child: Text(
                                     'Add Task',
                                     style: TextStyle(
