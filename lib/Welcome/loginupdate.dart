@@ -1,5 +1,7 @@
 //import 'dart:js';
 import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:beehive_app/Welcome/signupupdate.dart';
+import 'package:beehive_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
@@ -15,192 +17,156 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 100),
-                  child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                      fontFamily: 'SF-Pro-Bold',
-                      fontSize: 35,
-                      color: Colors.black54,
+      backgroundColor: ColorConstants.whiteBgImage,
+      body: SingleChildScrollView(
+              child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 150,),
+          child: Column(
+            children: [
+              Text(
+                'Sign In',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontFamily: 'SF-Pro-Bold',
+                  letterSpacing: 1.5,
+                  color: Colors.black,
+                ),
+              ),
+              
+              SizedBox(
+              height: 5,
+              ),
+              Text(
+              'Welcome back!',
+              style: TextStyle(
+                fontSize: 14,
+                fontFamily: 'SF-Pro-Bold',
+                letterSpacing: 1.5,
+                color: ColorConstants.labelColor,
+              ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 45),
+                child: Column(
+                  children: [
+                    TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        fillColor: Colors.black12,
+                        hintText: "Username",
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorConstants.buttonColor),
+                        ),
+                        // borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Text(
-                    "Welcome back!",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'SF-Pro-Thin',
-                      color: Colors.black54,
+                    SizedBox(
+                      height: 18,
                     ),
-                  ),
-                ),
-              ),
-              Center(
-                child: TextFieldContainer(
-                  child: TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.account_circle_rounded,
-                          color: Colors.black45),
-                      hintText: "Email",
+                    TextField(
+                      obscureText: true,
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ColorConstants.buttonColor),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              TextFieldContainer2(
-                child: TextField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.lock_open_rounded, color: Colors.black45),
-                    hintText: "Password",
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Text(
+                    SizedBox(
+                      height: 22,
+                    ),
+                    Text(
                       "Forgot your password?",
                       style: TextStyle(
-                        color: Colors.black54,
-                        fontFamily: 'SP-Pro-Thin',
+                        color: ColorConstants.buttonColor,
+                        fontFamily: 'SP-Pro-Bold',
                         fontSize: 15,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40),
-                child: FlatButton(
-                    color: Colors.amber,
-                    onPressed: () {
-                      context.read<AuthenticationService>().signIn(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim(),
-                          );
-                    },
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(20),
+                    SizedBox(
+                      height: 38,
                     ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'SF-Pro-Bold',
-                        color: Colors.white,
-                      ),
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: AlreadyHaveAnAccountCheck(),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          primary: ColorConstants.buttonColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                        ),
+                        onPressed: () {
+                          context.read<AuthenticationService>().signIn(
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim(),
+                              );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 12,
+                          ),
+                          child: Text(
+                            'Log in',
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-Medium',
+                              color: ColorConstants.whiteBgImage,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        )),
+                        SizedBox(
+                          height: 67,
+                        ),
+                        AlreadyHaveAnAccount(),
+                  ],
+                ),
               ),
             ],
           ),
-        ],
+          
+        ),
       ),
     );
   }
 }
 
-class AlreadyHaveAnAccountCheck extends StatelessWidget {
-  final bool login;
-  final Function press;
-  const AlreadyHaveAnAccountCheck({
-    Key key,
-    this.login = true,
-    this.press,
-  }) : super(key: key);
-
+class AlreadyHaveAnAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          login ? "Dont have an account? " : "Already have an Account ?",
+          "Don't have an account?",
           style: TextStyle(
             color: Colors.black54,
-            fontFamily: 'SF-Pro-Thin',
+            fontFamily: 'SF-Pro-Medium',
             fontSize: 15,
+            letterSpacing: 1.5,
           ),
         ),
+        SizedBox(
+          width: 9,
+        ),
         GestureDetector(
-          onTap: press,
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SignupUpdate()));
+          },
           child: Text(
-            login ? "Sign Up" : "Sign In",
+            "Sign Up",
             style: TextStyle(
-              color: Colors.black54,
-              fontFamily: 'SF-Pro-Bold',
+              color: ColorConstants.buttonColor,
+              fontFamily: 'SF-Pro-Medium',
               fontSize: 15,
-              fontWeight: FontWeight.bold,
+              letterSpacing: 1.5,
             ),
           ),
         ),
       ],
-    );
-  }
-}
-
-class TextFieldContainer2 extends StatelessWidget {
-  final Widget child;
-  const TextFieldContainer2({
-    Key key,
-    this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-        width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
-        child: child,
-      ),
-    );
-  }
-}
-
-class TextFieldContainer extends StatelessWidget {
-  final Widget child;
-  const TextFieldContainer({
-    Key key,
-    this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 140),
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-        width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
-        child: child,
-      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:beehive_app/Backends/firestore.dart';
+import 'package:beehive_app/Welcome/loginupdate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
@@ -153,8 +154,13 @@ class AlreadyHaveAnAccount extends StatelessWidget {
             fontSize: 15,
           ),
         ),
+        SizedBox(
+          width: 9,
+        ),
         GestureDetector(
-          onTap: press,
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
+          },
           child: Text(
             login ? "Sign In" : "Sign Up",
             style: TextStyle(

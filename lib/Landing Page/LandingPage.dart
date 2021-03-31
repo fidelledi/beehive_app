@@ -1,6 +1,7 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:beehive_app/Emotion%20Tracker/trackerMain.dart';
 import 'package:beehive_app/bnav.dart';
+import 'package:beehive_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
@@ -60,7 +61,14 @@ class GetUserName extends StatelessWidget {
 
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data = snapshot.data.data();
-          return Text(data['Name']);
+          return Text(data['Name'],
+          style: TextStyle(
+            fontFamily: 'SF-Pro-Bold',
+            fontSize: 24,
+            color: ColorConstants.textColor,
+            letterSpacing: 2,
+          ),
+          );
         }
 
         return Text("loading");
@@ -68,6 +76,44 @@ class GetUserName extends StatelessWidget {
     );
   }
 }
+
+class GetSchool extends StatelessWidget {
+  final String documentId;
+
+  GetSchool(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(documentId).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data();
+          return Text(data['School'],
+          style: TextStyle(
+            fontFamily: 'SF-Pro-Bold',
+            fontSize: 14,
+            color: ColorConstants.labelColor,
+            letterSpacing: 2,
+          ),
+          );
+        }
+
+        return Text("loading");
+      },
+    );
+  }
+}
+
+
 
 class LandingPage extends StatelessWidget {
   final auth = FirebaseAuth.instance;
@@ -90,8 +136,8 @@ class LandingPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.settings,
-                color: Colors.black,
+                Icons.logout,
+                color: Colors.white,
                 size: 25,
               ),
               onPressed: () {
@@ -102,54 +148,53 @@ class LandingPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Row(
-              children: [
-                GetUserName(auth.currentUser.uid),
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 20, left: 30),
-                //   child: RichText(
-                //       text: TextSpan(children: [
-                //     TextSpan(
-                //         text: 'Hello',
-                //         style: TextStyle(
-                //             fontFamily: 'SF-Pro-Text',
-                //             fontSize: 16,
-                //             color: Color(0xFF6E7191),
-                //             letterSpacing: 1.2)),
-                //     TextSpan(text: '\n'),
-                //     // TextSpan(
-                //     //     text: _getUser(),
-                //     //     style: TextStyle(
-                //     //       fontSize: 24,
-                //     //       fontFamily: 'SF-Pro-Bold',
-                //     //       color: Colors.black87,
-                //     //       letterSpacing: 1.2,
-                //     //     )),
-                //     // TextSpan(text: '\n'),
-                //     // TextSpan(
-                //     //     text: 'De La Salle-College of St Benilde',
-                //     //     style: TextStyle(
-                //     //       fontSize: 16,
-                //     //       fontFamily: 'SF-Pro-Text',
-                //     //       color: Color(0xFF6E7191),
-                //     //       letterSpacing: 1.2,
-                //     //     ))
-                //   ])),
-                // )
-              ],
-            ),
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 25, left: 330),
-                  child: Icon(
-                    Icons.person_rounded,
-                    size: 45,
-                    color: Color(0xFF003249),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, left: 40.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hello,',
+                        style: TextStyle(
+                          fontFamily: 'SF-Pro-Bold',
+                          letterSpacing: 2,
+                          fontSize: 14,
+                          color: ColorConstants.labelColor,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 3.0,),
+                        child: GetUserName(auth.currentUser.uid),
+                      ),
+                      GetSchool(auth.currentUser.uid),
+                    ],
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40.0),
+                    child: CircleAvatar(
+                      backgroundColor: ColorConstants.textColor,
+                      radius: 20.5,
+                      child: Icon(
+                        Icons.person,
+                        color: ColorConstants.whiteBgImage,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            // Stack(
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.only(top: 25, left: 330),
+            //       child: 
+            //     )
+            //   ],
+            // ),
             Stack(
               children: [
                 Padding(
