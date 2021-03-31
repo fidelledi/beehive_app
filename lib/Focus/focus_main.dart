@@ -76,7 +76,7 @@ class _focusMain extends State<focusMain> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      " Stay focused and productive \n pomodoro style. ",
                                       style: TextStyle(
                                         fontFamily: 'SF-Pro-Thin',
                                         color: Color(hexColor('#767676')),
@@ -130,7 +130,7 @@ class _focusMain extends State<focusMain> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      " Ease the tension and pain \n with these short \n breathing exercises. ",
                                       style: TextStyle(
                                         fontFamily: 'SF-Pro-Thin',
                                         color: Color(hexColor('#767676')),

@@ -57,12 +57,10 @@ class _breathingExercisePage extends State<breathingExercisePage> {
             Align(
               alignment: Alignment.topCenter,
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat. Duis aute irure dolor in\nreprehenderit involuptate velit esse cillum dolore eu\nfugiat nulla pariatur.",
+                ' Release the stress, anxiety, sadness, anger or \n any valid  emotions that you are feeling right now. \n Take these short breathing exercises to gain a \n peace of mind, relaxation and remove any tension \n that you may be feeling today.',
                 style: TextStyle(
                   fontFamily: 'SF-Pro-Thin',
-                  color: Color(
-                    hexColor('#6E7191'),
-                  ),
+                  color: Color(0xFF6E7191),
                   fontSize: 14,
                   letterSpacing: 1.2,
                 ),

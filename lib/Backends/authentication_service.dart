@@ -33,13 +33,15 @@ class AuthenticationService {
         school: school,
       );
 
-      Future<String> getCurrentUID() async {
-        return (auth.currentUser).uid;
-      }
-
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
+  }
+
+  Future<String> getCurrentUID() async {
+    print(auth.currentUser.uid.toString());
+
+    return (auth.currentUser.uid);
   }
 }
