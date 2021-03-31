@@ -36,6 +36,7 @@ dependencies:
 
   dependencies:
   table_calendar: ^2.3.3
+  flutter_countdown_timer: ^4.0.2
   
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,7 @@ flutter:
     - assets/images/hexagonYellow.png
     - assets/images/trackerBees.png
     - assets/images/welcomeBee.png
+    - assets/images/Avatar.png
 
   fonts:
     - family: SF-Pro-Black

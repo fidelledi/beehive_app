@@ -1,5 +1,6 @@
-
 import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/inProgress.dart';
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/timerCompleted.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
@@ -12,9 +13,9 @@ class pomSoloSelect extends StatefulWidget {
 }
 
 class _pomSoloSelect extends State<pomSoloSelect> {
+  final navigatorKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return MaterialApp(
           home: Scaffold(
         appBar: AppBar(
@@ -26,6 +27,23 @@ class _pomSoloSelect extends State<pomSoloSelect> {
               Navigator.pop(context);
             },
           ),
+          actions: [
+            PopupMenuButton(
+                itemBuilder: (content) => [
+                  PopupMenuItem(value: 1, 
+                  child: Text("Switch to Pomodoro Group"),),
+                  PopupMenuItem(value: 2, 
+                  child: Text("Cancel Pomodoro"),),
+                ],
+                onSelected: (int choice) {
+                  if (choice == 1) {
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => focusMain(),),);
+                  }
+                  else if (choice == 2) {
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => uplifterMain(),),);
+                  }
+                },),
+          ],
           backgroundColor: ColorConstants.appBarColor,
           elevation: 0.0,
         ),
@@ -145,64 +163,67 @@ class _pomSoloSelect extends State<pomSoloSelect> {
               Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15, bottom: 21),
-                    child: Container(
-                      color: ColorConstants.titleColor,
-                      height: 80,
-                      width: 347,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.08),
-                            spreadRadius: 1,
-                            blurRadius: 15,
-                            offset: Offset(0, 24), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(left: 22),
-                            child: CircleAvatar(
-                              radius: 27,
-                              backgroundColor: ColorConstants.labelColor,
+                    child: InkWell(onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => completedPom(),),);
+                }, //{,
+                                          child: Container(
+                        height: 80,
+                        width: 347,
+                        decoration: BoxDecoration(
+                          color: ColorConstants.buttonColor,
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.08),
+                              spreadRadius: 1,
+                              blurRadius: 15,
+                              offset: Offset(0, 24), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left: 22),
                               child: CircleAvatar(
-                                radius: 25,
-                                backgroundColor: Colors.white,
+                                radius: 27,
+                                backgroundColor: ColorConstants.labelColor,
+                                child: CircleAvatar(
+                                  radius: 25,
+                                  backgroundColor: Colors.white,
+                                ),
+                                
                               ),
-                              
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15,),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Task',
-                                  style: TextStyle(
-                                    fontFamily: 'SF-Pro-Medium',
-                                    fontSize: 14,
-                                    color: ColorConstants.textColor,
-                                    letterSpacing: 1.2,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15,),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Task',
+                                    style: TextStyle(
+                                      fontFamily: 'SF-Pro-Medium',
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      letterSpacing: 1.2,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  '1/2 Pomodoros',
-                                  style: TextStyle(
-                                    fontFamily: 'SF-Pro-Regular',
-                                    fontSize: 13,
-                                    color: ColorConstants.labelColor,
-                                    letterSpacing: 1.2,
+                                  Text(
+                                    '1/2 Pomodoros',
+                                    style: TextStyle(
+                                      fontFamily: 'SF-Pro-Regular',
+                                      fontSize: 13,
+                                      color: Colors.white,
+                                      letterSpacing: 1.2,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -435,31 +456,65 @@ class _pomSoloSelect extends State<pomSoloSelect> {
               SizedBox(
                 height: 76,
               ),
-              InkWell(
-                onTap: () => debugPrint('You tapped Start'), //{
-                //  Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
-                // },
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 43,
-                  ),
-                  child: Container(
-                      width: 126,
-                      height: 40,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: ColorConstants.buttonColor,
-                        borderRadius: BorderRadius.all(Radius.circular(40)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () => debugPrint('You tapped Start'), //{
+                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
+                    // },
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 43,
                       ),
-                      child: Text(
-                        'Start',
-                        style: TextStyle(
-                          fontFamily: 'SF-Pro-SemiBold',
-                          fontSize: 14,
-                          color: ColorConstants.buttonTextColor,
-                        ),
-                      )),
-                ),
+                      child: Container(
+                          width: 126,
+                          height: 40,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ColorConstants.buttonColor,
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                          ),
+                          child: Text(
+                            'Start Break',
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-SemiBold',
+                              fontSize: 14,
+                              color: ColorConstants.buttonTextColor,
+                            ),
+                          )),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 32,
+                  ),
+                  InkWell(
+                    onTap: () => debugPrint('You tapped Start'), //{
+                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
+                    // },
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 43,
+                      ),
+                      child: Container(
+                          width: 126,
+                          height: 40,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ColorConstants.buttonColor,
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                          ),
+                          child: Text(
+                            'End Pomodoro',
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-SemiBold',
+                              fontSize: 14,
+                              color: ColorConstants.buttonTextColor,
+                            ),
+                          )),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
