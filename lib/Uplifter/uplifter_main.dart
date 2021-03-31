@@ -77,7 +77,7 @@ class _uplifterMain extends State<uplifterMain> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      "The quote of the day \nto gain motivation.",
                                       style: TextStyle(
                                         fontFamily: 'SF-Pro-Thin',
                                         color: Color(hexColor('#767676')),
@@ -131,7 +131,7 @@ class _uplifterMain extends State<uplifterMain> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      "Motivate yourself with \nthese motivational podcasts",
                                       style: TextStyle(
                                         fontFamily: 'SF-Pro-Thin',
                                         color: Color(hexColor('#767676')),
@@ -187,7 +187,7 @@ class _uplifterMain extends State<uplifterMain> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.",
+                                      "Love reading motivation articles? \nThis one's for you",
                                       style: TextStyle(
                                         fontFamily: 'SF-Pro-Thin',
                                         color: Color(hexColor('#767676')),
