@@ -317,6 +317,17 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top:970),
+                  child: Text('data',
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                )
+              ],
             )
           ],
         ),

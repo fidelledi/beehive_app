@@ -59,6 +59,6 @@ class AuthenticationWrapper extends StatelessWidget {
     if (FirebaseUser != null) {
       return Nav(); // <-------- change this page if you need to test some pages
     }
-    return SignupUpdate();
+    return SignInPage();
   }
 }
