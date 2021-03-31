@@ -1,5 +1,6 @@
 import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Landing%20Page/LandingPage.dart';
+import 'package:beehive_app/SocialModel/SocialMain.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
 import 'package:beehive_app/constants.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _NavState extends State<Nav> {
   List<Widget> _widgetOptions = <Widget>[
     LandingPage(),
     focusMain(),
-    Text('Scoial'),
+    SocialMain(),
     uplifterMain(),
   ];
 
@@ -27,29 +28,6 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorConstants.appBarColor,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 150),
-          child: Text(
-            "BEEHIVE",
-            style: TextStyle(
-              fontFamily: 'SF-Pro-Bold',
-              fontSize: 24,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.black45,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

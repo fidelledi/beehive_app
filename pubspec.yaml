@@ -31,7 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^1.0.2
   firebase_auth: ^1.0.1
-  
+  cloud_firestore: ^1.0.3
   provider: ^5.0.0
 
   dependencies:
@@ -68,6 +68,12 @@ flutter:
     - assets/icons/extra_button.png
     - assets/images/pom_group.png
     - assets/images/pom_solo.png
+    - assets/images/hexagonPurple.png
+    - assets/images/subjectTrackerBee.png
+    - assets/images/honey.png
+    - assets/images/hexagonYellow.png
+    - assets/images/trackerBees.png
+    - assets/images/welcomeBee.png
 
   fonts:
     - family: SF-Pro-Black

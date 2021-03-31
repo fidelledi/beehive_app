@@ -1,4 +1,5 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
+import 'package:beehive_app/Backends/firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
@@ -11,6 +12,9 @@ import 'package:provider/provider.dart';
 class SignupUpdate extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController schoolController = TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +49,7 @@ class SignupUpdate extends StatelessWidget {
             ),
             NameTextInput(
                 child: TextField(
+              controller: nameController,
               decoration: InputDecoration(
                 icon: Icon(
                   Icons.person_rounded,
@@ -55,6 +60,7 @@ class SignupUpdate extends StatelessWidget {
             )),
             SchoolInputText(
               child: TextField(
+                controller: schoolController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.school_rounded,
@@ -94,10 +100,12 @@ class SignupUpdate extends StatelessWidget {
               padding: const EdgeInsets.only(top: 30),
               child: FlatButton(
                   color: Colors.amber,
-                  onPressed: () {
+                  onPressed: () async {
                     context.read<AuthenticationService>().signUp(
                           email: emailController.text.trim(),
                           password: passwordController.text.trim(),
+                          name: nameController.text.trim(),
+                          school: schoolController.text.trim(),
                         );
                   },
                   shape: new RoundedRectangleBorder(
