@@ -1,5 +1,6 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:beehive_app/Emotion%20Tracker/trackerMain.dart';
+import 'package:beehive_app/Uplifter/dialog_task_header.dart';
 import 'package:beehive_app/bnav.dart';
 import 'package:beehive_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -66,7 +67,7 @@ class GetUserName extends StatelessWidget {
             fontFamily: 'SF-Pro-Bold',
             fontSize: 24,
             color: ColorConstants.textColor,
-            letterSpacing: 2,
+            letterSpacing: 0.5,
           ),
           );
         }
@@ -99,10 +100,10 @@ class GetSchool extends StatelessWidget {
           Map<String, dynamic> data = snapshot.data.data();
           return Text(data['School'],
           style: TextStyle(
-            fontFamily: 'SF-Pro-Bold',
+            fontFamily: 'SF-Pro-Medium',
             fontSize: 14,
             color: ColorConstants.labelColor,
-            letterSpacing: 2,
+            letterSpacing: 0.5,
           ),
           );
         }
@@ -122,17 +123,15 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF8CD81),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 125),
-          child: Text(
-            'BEEHIVE',
-            style: TextStyle(
-              fontSize: 25,
-              fontFamily: 'SF-Pro-Bold',
-              color: Colors.white,
-            ),
+        title: Text(
+          'BEEHIVE',
+          style: TextStyle(
+            fontSize: 25,
+            fontFamily: 'SF-Pro-Bold',
+            color: Colors.white,
           ),
         ),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
               icon: Icon(
@@ -161,7 +160,7 @@ class LandingPage extends StatelessWidget {
                         'Hello,',
                         style: TextStyle(
                           fontFamily: 'SF-Pro-Bold',
-                          letterSpacing: 2,
+                          letterSpacing: 0.5,
                           fontSize: 14,
                           color: ColorConstants.labelColor,
                         ),
@@ -312,33 +311,40 @@ class LandingPage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 220, left: 45),
-                          child: Container(
-                            width: 240,
-                            height: 50,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(17),
-                              child: FlatButton(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 40, vertical: 8),
-                                  color: Color(0xFFD17B47),
-                                  onPressed: () async {
-                                    final String id = await context
-                                        .read<AuthenticationService>()
-                                        .getCurrentUID();
-                                    final DocumentSnapshot docs =
-                                        await usersRef.doc(id).get();
-                                    print(docs.data());
-                                  },
-                                  child: Text(
-                                    'Add Task',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'SF-Pro-Bold',
-                                      fontSize: 15,
-                                    ),
-                                  )),
+                          child: 
+                            InkWell(
+                onTap: (){
+                              createNewTaskDialog.exit(context);
+                              },
+                //  Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
+                // },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Container(
+                      width: 230,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: ColorConstants.buttonColor,
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(Icons.add, color: ColorConstants.buttonTextColor,),
+                          ),
+                          Text(
+                            'Add Task',
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-SemiBold',
+                              fontSize: 14,
+                              color: ColorConstants.buttonTextColor,
                             ),
                           ),
+                        ],
+                      )),
+                ),
+              ),
                         ),
                       ],
                     ),

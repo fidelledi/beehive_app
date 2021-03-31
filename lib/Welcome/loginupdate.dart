@@ -19,8 +19,11 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstants.whiteBgImage,
       body: SingleChildScrollView(
-              child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 150,),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 50.0,
+            vertical: 150,
+          ),
           child: Column(
             children: [
               Text(
@@ -32,18 +35,17 @@ class SignInPage extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              
               SizedBox(
-              height: 5,
+                height: 5,
               ),
               Text(
-              'Welcome back!',
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: 'SF-Pro-Bold',
-                letterSpacing: 1.5,
-                color: ColorConstants.labelColor,
-              ),
+                'Welcome back!',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontFamily: 'SF-Pro-Bold',
+                  letterSpacing: 1.5,
+                  color: ColorConstants.labelColor,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 45),
@@ -54,7 +56,7 @@ class SignInPage extends StatelessWidget {
                       controller: emailController,
                       decoration: InputDecoration(
                         fillColor: Colors.black12,
-                        hintText: "Username",
+                        hintText: "Email",
                         focusedBorder: UnderlineInputBorder(
                           borderSide:
                               BorderSide(color: ColorConstants.buttonColor),
@@ -118,16 +120,15 @@ class SignInPage extends StatelessWidget {
                             ),
                           ),
                         )),
-                        SizedBox(
-                          height: 67,
-                        ),
-                        AlreadyHaveAnAccount(),
+                    SizedBox(
+                      height: 67,
+                    ),
+                    AlreadyHaveAnAccount(),
                   ],
                 ),
               ),
             ],
           ),
-          
         ),
       ),
     );
@@ -154,7 +155,8 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SignupUpdate()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SignupUpdate()));
           },
           child: Text(
             "Sign Up",

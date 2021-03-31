@@ -1,6 +1,7 @@
 import 'package:beehive_app/Backends/authentication_service.dart';
 import 'package:beehive_app/Backends/firestore.dart';
 import 'package:beehive_app/Welcome/loginupdate.dart';
+import 'package:beehive_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 import 'package:beehive_app/Focus/focus_main.dart';
@@ -29,8 +30,9 @@ class SignupUpdate extends StatelessWidget {
                   "Sign Up",
                   style: TextStyle(
                     fontFamily: 'SF-Pro-Bold',
-                    fontSize: 35,
-                    color: Colors.black54,
+                    fontSize: 32,
+                    color: Colors.black,
+                    letterSpacing: 1.5,
                   ),
                 ),
               ),
@@ -42,8 +44,9 @@ class SignupUpdate extends StatelessWidget {
                   "Bee yourself!",
                   style: TextStyle(
                     fontSize: 18,
-                    fontFamily: 'SF-Pro-Thin',
-                    color: Colors.black54,
+                    fontFamily: 'SF-Pro-Medium',
+                    letterSpacing: 1.5,
+                    color: ColorConstants.labelColor,
                   ),
                 ),
               ),
@@ -52,22 +55,20 @@ class SignupUpdate extends StatelessWidget {
                 child: TextField(
               controller: nameController,
               decoration: InputDecoration(
-                icon: Icon(
-                  Icons.person_rounded,
-                  color: Colors.black45,
-                ),
                 hintText: "Name",
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: ColorConstants.buttonColor),
+                ),
               ),
             )),
             SchoolInputText(
               child: TextField(
                 controller: schoolController,
                 decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.school_rounded,
-                    color: Colors.black45,
-                  ),
                   hintText: "School",
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.buttonColor),
+                  ),
                 ),
               ),
             ),
@@ -76,11 +77,10 @@ class SignupUpdate extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.mail_rounded,
-                    color: Colors.black45,
-                  ),
                   hintText: "Email",
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.buttonColor),
+                  ),
                 ),
               ),
             ),
@@ -89,40 +89,49 @@ class SignupUpdate extends StatelessWidget {
                 obscureText: true,
                 controller: passwordController,
                 decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.lock_open_rounded,
-                    color: Colors.black45,
-                  ),
                   hintText: "Password",
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.buttonColor),
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 30),
-              child: FlatButton(
-                  color: Colors.amber,
-                  onPressed: () async {
-                    context.read<AuthenticationService>().signUp(
-                          email: emailController.text.trim(),
-                          password: passwordController.text.trim(),
-                          name: nameController.text.trim(),
-                          school: schoolController.text.trim(),
-                        );
-                  },
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  primary: ColorConstants.buttonColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                ),
+                onPressed: () async {
+                  context.read<AuthenticationService>().signUp(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        name: nameController.text.trim(),
+                        school: schoolController.text.trim(),
+                      );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
                   ),
                   child: Text(
-                    "Sign Up",
+                    'Sign Up',
                     style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'SF-Pro-Bold',
-                      color: Colors.white,
+                      fontFamily: 'SF-Pro-Medium',
+                      color: ColorConstants.whiteBgImage,
+                      letterSpacing: 1,
                     ),
-                  )),
+                  ),
+                ),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 18),
+              padding: const EdgeInsets.only(top: 60),
               child: AlreadyHaveAnAccount(),
             ),
           ],
@@ -150,8 +159,9 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           login ? "Already have an account?" : "Don't have an account?",
           style: TextStyle(
             color: Colors.black54,
-            fontFamily: 'SF-Pro-Thin',
+            fontFamily: 'SF-Pro-Medium',
             fontSize: 15,
+              letterSpacing: 1.5,
           ),
         ),
         SizedBox(
@@ -159,15 +169,17 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SignInPage()));
           },
           child: Text(
             login ? "Sign In" : "Sign Up",
             style: TextStyle(
-              color: Colors.black54,
-              fontFamily: 'SF-Pro-Bold',
+              color: ColorConstants.buttonColor,
+              fontFamily: 'SF-Pro-Medium',
               fontSize: 15,
               fontWeight: FontWeight.bold,
+              letterSpacing: 1.5,
             ),
           ),
         ),
@@ -190,10 +202,6 @@ class PasswordTextInput extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
         child: child,
       ),
     );
@@ -214,8 +222,6 @@ class EmailTextInput extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
-        decoration: BoxDecoration(
-            color: Colors.grey, borderRadius: BorderRadius.circular(29)),
         child: child,
       ),
     );
@@ -236,10 +242,6 @@ class SchoolInputText extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
         child: child,
       ),
     );
@@ -256,14 +258,10 @@ class NameTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 90),
+      padding: const EdgeInsets.only(top: 48),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: 370,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(29),
-        ),
         child: child,
       ),
     );
