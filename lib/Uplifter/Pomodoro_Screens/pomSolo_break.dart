@@ -1,3 +1,4 @@
+import 'package:beehive_app/Uplifter/dialogHelper2.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
 
@@ -49,7 +50,7 @@ class _breaksList extends State<breaksList> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Task',
+                          '10 min',
                           style: TextStyle(
                             fontFamily: 'SF-Pro-Medium',
                             fontSize: 14,
@@ -57,15 +58,7 @@ class _breaksList extends State<breaksList> {
                             letterSpacing: 1.2,
                           ),
                         ),
-                        Text(
-                          '2 Pomodoros',
-                          style: TextStyle(
-                            fontFamily: 'SF-Pro-Regular',
-                            fontSize: 13,
-                            color: ColorConstants.labelColor,
-                            letterSpacing: 1.2,
-                          ),
-                        ),
+                        
                       ],
                     ),
                   ),
@@ -77,7 +70,9 @@ class _breaksList extends State<breaksList> {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: InkWell(
-            onTap: () => debugPrint("Add Button (2) was clicked"),
+            onTap: (){
+                              DialogHelper2.exit(context);
+                              },
             child: Container(
               height: 56,
               width: 347,

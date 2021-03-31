@@ -1,3 +1,4 @@
+
 import 'package:beehive_app/Uplifter/pom_solo.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
@@ -31,7 +32,7 @@ _buildChild(BuildContext context) => Container(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Text('Choose your mode',
             style: TextStyle(
               fontFamily: 'SF-Pro-SemiBold',
@@ -46,7 +47,7 @@ _buildChild(BuildContext context) => Container(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
             InkWell(onTap: () {
-               Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
+               Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo(),),);
             }, 
             child: Container(
               width: 126,
@@ -64,7 +65,7 @@ _buildChild(BuildContext context) => Container(
               ),)),
             ),
             SizedBox(
-              width: 32,
+              width: 20,
             ),
             InkWell(onTap: () {}, 
             child: Container(

@@ -1,3 +1,5 @@
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/popBreak_popUp.dart';
+import 'package:beehive_app/Uplifter/dialogHelper3.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/constants.dart';
 
@@ -144,7 +146,9 @@ class _workSessionlist extends State<workSessionlist> {
             Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: InkWell(
-                    onTap: ()=>debugPrint("Add Button was clicked"),
+                    onTap: (){
+                              DialogHelper3.exit(context);
+                              },
                                       child: Container(
                       height: 56,
                       width: 347,
