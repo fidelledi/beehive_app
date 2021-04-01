@@ -1,6 +1,8 @@
+import 'package:beehive_app/Uplifter/Pomodoro_Screens/timerCompleted.dart';
 import 'package:beehive_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:slide_countdown_clock/slide_countdown_clock.dart';
 import 'dart:async';
 
 import 'package:flutter_countdown_timer/index.dart';
@@ -11,20 +13,10 @@ class inProgress extends StatefulWidget {
 }
 
 class _inProgressState extends State<inProgress> {
-  CountdownTimerController controller;
-  int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = CountdownTimerController(endTime: endTime, onEnd: onEnd);
-  }
-
-void onEnd() {
-  Text(
-    ''
-  );
-}
+  // CountdownTimerController controller;
+  // int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  Duration _duration = Duration(minutes: 25);
 
   @override
   Widget build(BuildContext context) {
@@ -88,19 +80,48 @@ void onEnd() {
             ),
           ),
           SizedBox(height: 92,),
-          // SlideCountdownClock(
-          //   duration: _duration,
-          // slideDirection: SlideDirection.Down,
-          // separator: ':',
-          // textStyle: TextStyle(
-          //   fontSize: 36,
-          //   fontFamily: 'SF-Pro-Medium',
-          //   color: ColorConstants.whiteBgImage,
-          //   ),
-          //   onDone: () {
-          //     _scaffoldKey.currentWidget(Text(data))
-          //   },
-          // )
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: SlideCountdownClock(
+              duration: _duration,
+            slideDirection: SlideDirection.Down,
+            separator: ':',
+            textStyle: TextStyle(
+              fontSize: 36,
+              fontFamily: 'SF-Pro-Medium',
+              color: ColorConstants.whiteBgImage,
+              ),
+              onDone: () {
+                _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Pomodoro is finished')));
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 42),
+            child: ElevatedButton(
+                   style: ElevatedButton.styleFrom(
+                     elevation: 0,
+                     side: BorderSide(width: 2, color: ColorConstants.buttonColor),
+                     primary: ColorConstants.whiteBgImage,
+                     shape: 
+                       RoundedRectangleBorder(borderRadius: BorderRadius.circular(40),
+                       ),
+                     ),
+                   onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => completedPom(),));
+                   
+                 },
+                 
+                 child: Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12,),
+                   child: Text('Done',
+                   style: TextStyle(
+                     fontFamily: 'SF-Pro-Medium',
+                     color: ColorConstants.buttonColor,
+                     letterSpacing: 1,
+                     ),),
+                 ),),
+          ),
         ],
       ),
     );

@@ -36,7 +36,8 @@ dependencies:
 
   dependencies:
   table_calendar: ^2.3.3
-  flutter_countdown_timer: ^4.0.2
+  flutter_countdown_timer: ^4.0.2 
+  slide_countdown_clock: ^1.0.3
   
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,7 @@ flutter:
     - assets/images/study5.jpg
     - assets/images/study6.jpg
     - assets/images/study7.jpg
+    - assets/images/untitled23.png
 # >>>>>>> 2606d193562ee7cd7a922f9cc832fb92abee846e
 
   fonts:

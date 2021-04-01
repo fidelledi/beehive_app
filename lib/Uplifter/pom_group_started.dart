@@ -9,12 +9,12 @@ import 'package:beehive_app/constants.dart';
 import 'package:beehive_app/Uplifter/Pomodoro_Screens/pomSolo_work.dart';
 import 'package:beehive_app/Uplifter/Pomodoro_Screens/pomSolo_break.dart';
 
-class pomSoloSelect extends StatefulWidget {
+class pomGroupSelect extends StatefulWidget {
   @override
-  _pomSoloSelect createState() => _pomSoloSelect();
+  _pomGroupSelect createState() => _pomGroupSelect();
 }
 
-class _pomSoloSelect extends State<pomSoloSelect> {
+class _pomGroupSelect extends State<pomGroupSelect> {
   final navigatorKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,8 @@ class _pomSoloSelect extends State<pomSoloSelect> {
                   PopupMenuItem(value: 1, 
                   child: Text("Cancel Pomodoro"),),
                 ],
-                onSelected: (int choice) {
-                  if (choice == 1) {
-                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => pomSolo(),),);
+                onSelected: (int choice) {if (choice == 1) {
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => pomGroup(),),);
                   }
                 },),
           ],

@@ -1,3 +1,5 @@
+import 'package:beehive_app/Focus/focus_main.dart';
+import 'package:beehive_app/Focus/theBreathingExercise.dart';
 import 'package:beehive_app/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ hexColor(String colorhexcode) {
 
 class _breathingExercisePage extends State<breathingExercisePage> {
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.appBarColor,
       appBar: AppBar(
@@ -28,8 +30,9 @@ class _breathingExercisePage extends State<breathingExercisePage> {
             ),
           ),
           onPressed: () {
-            Navigator.pop(context);
-          },
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => focusMain(),));
+                   
+                 },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -68,51 +71,113 @@ class _breathingExercisePage extends State<breathingExercisePage> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 20),
-                child: Container(
-                  height: 146,
-                  width: 347,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 24,
-                        offset: Offset(0, 24), // changes position of shadow
+                  padding: const EdgeInsets.only(top: 25, bottom: 20),
+                  child: InkWell(
+                    onTap: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => theBreathingExercise(),));
+                   
+                 },
+                                      child: Container(
+                      height: 146,
+                      width: 347,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 1,
+                            blurRadius: 24,
+                            offset: Offset(0, 24), // changes position of shadow
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: 45,
-                        right: 172,
-                        child: Text(
-                          "Improve Focus",
-                          style: TextStyle(
-                            fontFamily: 'SF-Pro-Bold',
-                            color: Color(
-                              hexColor('#003249'),
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            bottom: 45,
+                            right: 172,
+                            child: Text(
+                              "Improve Focus",
+                              style: TextStyle(
+              fontFamily: 'SF-Pro-Bold',
+              color: Color(
+                hexColor('#003249'),
+              ),
+              fontSize: 20,
+              letterSpacing: 1.2,
+                              ),
                             ),
-                            fontSize: 20,
-                            letterSpacing: 1.2,
+                          ),
+                          Positioned(
+                            height: 231,
+                            width: 110,
+                            child: Container(
+                              decoration: BoxDecoration(
+              image: DecorationImage(
+                    image:
+                        AssetImage('assets/images/Group 27.png')),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: InkWell(onTap: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => theBreathingExercise(),));
+                   
+                 },
+                                  child: Container(
+                    height: 146,
+                    width: 347,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 24,
+                          offset: Offset(0, 24), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          bottom: 45,
+                          right: 172,
+                          child: Text(
+                            "Reduce Stress",
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-Bold',
+                              color: Color(
+                                hexColor('#003249'),
+                              ),
+                              fontSize: 20,
+                              letterSpacing: 1.2,
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        height: 231,
-                        width: 110,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/Group 27.png')),
+                        Positioned(
+                          height: 231,
+                          width: 110,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/Group 27.png')),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -120,101 +185,55 @@ class _breathingExercisePage extends State<breathingExercisePage> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: Container(
-                  height: 146,
-                  width: 347,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 24,
-                        offset: Offset(0, 24), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: 45,
-                        right: 172,
-                        child: Text(
-                          "Reduce Stress",
-                          style: TextStyle(
-                            fontFamily: 'SF-Pro-Bold',
-                            color: Color(
-                              hexColor('#003249'),
+                child: InkWell(onTap: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => theBreathingExercise(),));
+                   
+                 },
+                                  child: Container(
+                    height: 146,
+                    width: 347,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 24,
+                          offset: Offset(0, 24), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          bottom: 45,
+                          right: 172,
+                          child: Text(
+                            "Am I Anxious?",
+                            style: TextStyle(
+                              fontFamily: 'SF-Pro-Bold',
+                              color: Color(
+                                hexColor('#003249'),
+                              ),
+                              fontSize: 20,
+                              letterSpacing: 1.2,
                             ),
-                            fontSize: 20,
-                            letterSpacing: 1.2,
                           ),
                         ),
-                      ),
-                      Positioned(
-                        height: 231,
-                        width: 110,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/Group 27.png')),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: Container(
-                  height: 146,
-                  width: 347,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 24,
-                        offset: Offset(0, 24), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: 45,
-                        right: 172,
-                        child: Text(
-                          "Am I Anxious?",
-                          style: TextStyle(
-                            fontFamily: 'SF-Pro-Bold',
-                            color: Color(
-                              hexColor('#003249'),
+                        Positioned(
+                          height: 231,
+                          width: 110,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/Group 27.png')),
                             ),
-                            fontSize: 20,
-                            letterSpacing: 1.2,
                           ),
                         ),
-                      ),
-                      Positioned(
-                        height: 231,
-                        width: 110,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/Group 27.png')),
-                          ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

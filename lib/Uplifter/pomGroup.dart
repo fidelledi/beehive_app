@@ -1,5 +1,6 @@
 import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Uplifter/dialog_helper4.dart';
+import 'package:beehive_app/Uplifter/pom_group_started.dart';
 import 'package:beehive_app/Uplifter/pom_solo.dart';
 import 'package:beehive_app/Uplifter/pom_solo_started.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
@@ -191,12 +192,10 @@ class _pomGroup extends State<pomGroup> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => pomSoloSelect(),
+                      builder: (context) => pomGroupSelect(),
                     ),
                   );
-                }, //{
-                //  Navigator.push(context, MaterialPageRoute(builder: (context) => pomSolo()));
-                // },
+                }, 
                 child: Container(
                     width: 126,
                     height: 40,
