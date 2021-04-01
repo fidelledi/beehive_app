@@ -4,24 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Beehive Application',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-      home: WelcomePage(),
-    );
-  }
-}
-
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -58,13 +40,14 @@ class WelcomePage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 40,vertical: 8),
                     color:Color(0xFFD17B47),
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage())
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => null),
                       ); },
-                    child: Text('Lets Go',
+                    child: Text('Let\'s Go!',
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'SF-Pro-Bold',
                         fontSize: 18,
+                        letterSpacing: 1.5,
                       ),)),
               ),
             ),

@@ -21,34 +21,63 @@ class SignInPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 50.0,
-            vertical: 150,
+            horizontal: 25.0,
+            vertical: 25,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Sign In',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontFamily: 'SF-Pro-Bold',
-                  letterSpacing: 1.5,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                'Welcome back!',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'SF-Pro-Bold',
-                  letterSpacing: 1.5,
-                  color: ColorConstants.labelColor,
-                ),
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        width: 277.25,
+                        height: 242,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/welcomeBee.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 285),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Sign In ',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontFamily: 'SF-Pro-SemiBold',
+                            letterSpacing: 1.5,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 7.0),
+                          child: Text(
+                            'Welcome!         ',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'SF-Pro-SemiBold',
+                              letterSpacing: 1.5,
+                              color: ColorConstants.labelColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 45),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 22, horizontal: 1),
                 child: Column(
                   children: [
                     TextField(
@@ -79,18 +108,7 @@ class SignInPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 22,
-                    ),
-                    Text(
-                      "Forgot your password?",
-                      style: TextStyle(
-                        color: ColorConstants.buttonColor,
-                        fontFamily: 'SP-Pro-Bold',
-                        fontSize: 15,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 38,
+                      height: 48,
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -121,7 +139,7 @@ class SignInPage extends StatelessWidget {
                           ),
                         )),
                     SizedBox(
-                      height: 67,
+                      height: 48,
                     ),
                     AlreadyHaveAnAccount(),
                   ],
