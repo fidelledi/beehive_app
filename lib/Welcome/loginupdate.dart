@@ -112,7 +112,7 @@ class SignInPage extends StatelessWidget {
                             vertical: 12,
                           ),
                           child: Text(
-                            'Log in',
+                            'Sign In',
                             style: TextStyle(
                               fontFamily: 'SF-Pro-Medium',
                               color: ColorConstants.whiteBgImage,
@@ -142,16 +142,13 @@ class AlreadyHaveAnAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          "Don't have an account?",
+          "Don't have an account?  ",
           style: TextStyle(
             color: Colors.black54,
             fontFamily: 'SF-Pro-Medium',
             fontSize: 15,
             letterSpacing: 1.5,
           ),
-        ),
-        SizedBox(
-          width: 9,
         ),
         GestureDetector(
           onTap: () {
