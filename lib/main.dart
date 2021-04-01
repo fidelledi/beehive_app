@@ -8,7 +8,6 @@ import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Landing%20Page/LandingPage.dart';
 import 'package:beehive_app/Uplifter/podcast.dart';
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
-import 'package:beehive_app/Welcome/Welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Focus/breathing_exercises.dart';
 import 'package:beehive_app/bnav.dart';

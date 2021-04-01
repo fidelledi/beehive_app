@@ -1,5 +1,7 @@
 import 'package:beehive_app/Focus/focus_main.dart';
 import 'package:beehive_app/Focus/theBreathingExercise.dart';
+import 'package:beehive_app/Landing%20Page/LandingPage.dart';
+import 'package:beehive_app/bnav.dart';
 import 'package:beehive_app/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +32,7 @@ class _breathingExercisePage extends State<breathingExercisePage> {
             ),
           ),
           onPressed: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context) => focusMain(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => Nav(),));
                    
                  },
         ),
