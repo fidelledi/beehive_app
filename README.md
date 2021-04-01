@@ -2,6 +2,11 @@
 
 A candidate application for Solution Challenge 2021.
 
+#For testing purposes 
+email: moninasalamanca@gmail.com
+password: 123456
+
+
 ## Upgrade to the latest version of flutter
 flutter doctor upgrade 
 
