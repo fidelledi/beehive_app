@@ -2,7 +2,7 @@
 
 A candidate application for Solution Challenge 2021.
 
-# For testing purposes 
+# For testing purposes. For optimal experience, please run the application in Google Pixel 3 (Pixel_3a_API_30_x86). Thank you so much!
 email: fidelrillon67@gmail.com
 password: 123456
 
