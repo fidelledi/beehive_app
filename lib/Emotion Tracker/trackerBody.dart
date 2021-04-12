@@ -19,7 +19,7 @@ class _emotionTrackerBodyState extends State<emotionTrackerBody> {
         Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top:size.height * 0.01,left: 30),
+              margin: EdgeInsets.only(top: size.height * 0.01, left: 30),
               child: RichText(
                 text:TextSpan(
                     children: [
