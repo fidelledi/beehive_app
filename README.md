@@ -6,8 +6,8 @@ A candidate application for Solution Challenge 2021.
 email: fidelrillon67@gmail.com
 password: 123456
 
-
-## Upgrade to the latest version of flutter
+Please stay safe, and take care. :)
+<!-- ## Upgrade to the latest version of flutter
 flutter doctor upgrade 
 
 ## Check if your copy of the app has the appropriate packages 
@@ -77,4 +77,4 @@ git merge upstream/main
 git push origin main
 ```
 8. Refresh the Fork Repository Web Page 
-
+ -->
