@@ -1,4 +1,5 @@
 import 'package:beehive_app/Uplifter/uplifter_main.dart';
+import 'package:beehive_app/bnav.dart';
 import 'package:flutter/material.dart';
 import 'package:beehive_app/Focus/breathing_exercises.dart';
 import 'package:beehive_app/Uplifter/dialog_helper.dart';
@@ -20,6 +21,13 @@ class _focusMain extends State<focusMain> {
     return Scaffold(
       appBar: AppBar(
         title: Text(' '),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_rounded),
+            color: Color(hexColor('#14142A')),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Nav()));
+            },
+          ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
