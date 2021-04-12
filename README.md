@@ -2,6 +2,12 @@
 
 A candidate application for Solution Challenge 2021.
 
+## Technologies 
+The project is created with 
+firebase version: 1.0.2
+flutter version: 2.1.0-12.1.pre
+
+
 # For testing purposes. For optimal experience, please run the application in Google Pixel 3 (Pixel_3a_API_30_x86). Thank you so much!
 email: fidelrillon67@gmail.com
 password: 123456
